@@ -1,8 +1,8 @@
 const express=require('express');
 const app=express();
-const user=require('./routes/api.js'); 
+const user=require('./routes/api'); 
 var port=5000
-const connectDB=require('./database/connection.js')
+const connectDB=require('./database/connection')
 const morgan=require('morgan')
 
 app.use(express.json())
