@@ -1,4 +1,4 @@
-const Userdb = require('../model/model.js')
+const Userdb = require('../model/model')
 
 exports.create = (req,res)=>{
     if (Object.keys(req.body).length === 0) {
