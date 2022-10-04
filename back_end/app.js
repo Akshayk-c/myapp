@@ -1,10 +1,12 @@
 const express=require('express');
 const app=express();
-const user=require('./routes/api.js'); 
+const user=require('./routes/api'); 
 var port=5000
-const connectDB=require('./database/connection.js')
+const connectDB=require('./database/connection')
 const morgan=require('morgan')
+var cors = require('cors')
 
+app.use(cors())
 app.use(express.json())
 app.use('/user', user)
 app.use(morgan('tiny'))

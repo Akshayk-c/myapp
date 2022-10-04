@@ -1,4 +1,4 @@
-const Userdb = require('../model/model.js')
+const Userdb = require('../model/model')
 
 exports.create = (req,res)=>{
     if (Object.keys(req.body).length === 0) {
@@ -44,20 +44,6 @@ exports.update = async (req,res)=>{
     }
 }
 
-/*exports.updater = (req,res)=>{
-    if (Object.keys(req.body).length === 0) {
-        res.status(400).send({ message: "data to update empty" })
-        return;
-    }
-    const id = req.params.id
-    Userdb.findByIdAndUpdate(id,req.body,{ new: true})
-    .then(data=>{
-        res.json(data)
-    })
-    .catch(err=>{
-        res.send("error while fetch")
-    }) 
-}*/
 exports.delete =async (req,res)=>{
     try{
         const id = req.params.id
