@@ -7,7 +7,7 @@ function App() {
   const [mutate,setMutate]=useState("")
   return (
     <>
-       <UserForm setMutate={setMutate}/>
+       <UserForm  setMutate={setMutate}/>
         <UserView mutate={mutate}/>
     </>
   );

@@ -23,6 +23,7 @@ exports.findall = (req,res)=>{
     Userdb.find()
     .then(data=>{
         res.send(data)
+        console.log(data)
     })
     .catch(err=>{
         res.send("error while fetch")
