@@ -23,6 +23,7 @@ function  UserView ({mutate}) {
           
           users.map((data) => (
             <div key={data._id}>{data.fname}
+            <div>{data.lname}</div>
             </div>))
             
         }
