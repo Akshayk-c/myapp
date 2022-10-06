@@ -17,18 +17,19 @@ function  UserView ({mutate}) {
   
   return (
      
-    <div>
-      
-        {
-          
+    <table >
+      <tr>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Email id</th>
+          </tr>
+          {
           users.map((data) => (
-            <div key={data._id}>{data.fname}
-            <div>{data.lname}</div>
-            </div>))
-            
+             <tr key={data._id}><td>{data.fname}</td>
+            <td>{data.lname}</td><td>{data.email}</td></tr>
+            ))  
         }
-    </div>
-    
+    </table> 
   )
 }
 
