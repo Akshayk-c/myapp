@@ -18,8 +18,8 @@ function UserView({ mutate }) {
   return (
     <>
       <label style={{ fontSize: 'large' }}>USER DETAILS</label>
-      <table style={{ border: 'double' }} className="col-xs-12 col-sm-6 col-md-8">
-        <thead><tr>
+      <table style={{ border: 'double' }} >
+        <thead><tr style={{border:'dotted'}}>
           <th>First name</th>
           <th>Last name</th>
           <th>Email id</th>
