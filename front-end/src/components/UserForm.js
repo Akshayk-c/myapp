@@ -8,7 +8,6 @@ export default function UserForm({setMutate}) {
   const [password, setPassword] = useState("");
   const handleClick = async (e) => {
     e.preventDefault()
-    setMutate(Math.random)
     try {
       const resp = await axios.post("http://localhost:5000/user", {
         email: email,
@@ -20,6 +19,7 @@ export default function UserForm({setMutate}) {
     } catch (error) {
       console.log(error.resp);
     }
+    await setMutate(Math.random)
   };
 
   return (

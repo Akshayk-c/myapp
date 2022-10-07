@@ -3,8 +3,10 @@ import axios from 'axios'
 
 
 function UserView({ mutate }) {
+  
   const [users, setUsers] = useState([])
-  useEffect(() => {
+  const [render, setRender] = useState([])
+   useEffect(() => {
     axios.get('http://localhost:5000/user')
       .then(res => {
         setUsers(res.data)
@@ -12,14 +14,21 @@ function UserView({ mutate }) {
       .catch(err => {
         console.log(err)
       })
+  }, [mutate,render])
 
-  }, [mutate])
 
+  function deleteUser(id,e){
+    console.log(id)
+    axios.delete(`http://localhost:5000/user/${id}`)
+    .then(res=>alert("User deleted successfuly"))
+    .catch(error=>{console.log(error)})
+    setRender(Math.random)
+  }
   return (
     <>
       <label style={{ fontSize: 'large' }}>USER DETAILS</label>
       <table style={{ border: 'double' }} >
-        <thead><tr style={{border:'dotted'}}>
+        <thead><tr>
           <th>First name</th>
           <th>Last name</th>
           <th>Email id</th>
@@ -36,10 +45,10 @@ function UserView({ mutate }) {
                 <td>{data.email}</td>
                 <td>{data.password}</td>
                 <td>
-                <input type='button' value='Edit' />
+                <button>Edit</button>
                 </td>
                 <td>
-                <input type='button' value='Delete' />
+                <button onClick={(e)=>deleteUser(data._id,e)}>Delete</button>
                 </td></tr>
             ))
           }
@@ -48,5 +57,4 @@ function UserView({ mutate }) {
     </>
   )
 }
-
 export default UserView
