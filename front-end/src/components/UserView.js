@@ -8,7 +8,7 @@ function UserView() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [users, setUsers] = useState([])
-  const [render, setRender] = useState([])
+  const [render, setRender] = useState("")
 
   useEffect(() => {
     axios.get('http://localhost:5000/user')
@@ -18,7 +18,7 @@ function UserView() {
       .catch(err => {
         console.log(err)
       })
-  }, [render])
+    },[render,deleteUser])
 
   const addUser = async (e) => {
     e.preventDefault()
@@ -33,15 +33,26 @@ function UserView() {
     } catch (error) {
       console.log(error.resp);
     }
-    setRender(Math.random)
+  setRender(Math.random)
   }
-  function deleteUser(id, e) {
+  function updateUser(id, e) {
     console.log(id)
-    axios.delete(`http://localhost:5000/user/${id}`)
-      .then(res => alert("User deleted successfuly"))
-      .catch(error => { console.log(error) })
-    setRender(Math.random)
+    setFname(id.fname)
+    console.log(fname)
   }
+
+  function deleteUser  (id, e) {
+    e.preventDefault()
+    try{
+      axios.delete(`http://localhost:5000/user/${id}`)
+        .then(res => alert("User deleted successfuly"))
+        .catch(error => { console.log(error) })
+      } 
+      catch (error) {
+        console.log(error.resp);
+      }
+  }
+
   return (
     <>
       <div>
@@ -57,7 +68,7 @@ function UserView() {
           <input
             type="text"
             placeholder="First Name"
-            name="lname"
+            name="fname"
             onChange={(e) => setFname(e.target.value)}
           />
         </div>
@@ -65,7 +76,7 @@ function UserView() {
           <input
             type="text"
             placeholder="Last name"
-            name="fname"
+            name="lname"
             onChange={(e) => setLname(e.target.value)}
           />
         </div>
@@ -103,10 +114,10 @@ function UserView() {
                 <td>{data.email}</td>
                 <td>{data.password}</td>
                 <td>
-                  <button>Edit</button>
+                  <button onClick={(e) => updateUser(data)}>Edit</button>
                 </td>
                 <td>
-                  <button onClick={(e) => deleteUser(data._id, e)}>Delete</button>
+                  <button onClick={(e) => deleteUser(data._id,e)}>Delete</button>
                 </td></tr>
             ))
           }
