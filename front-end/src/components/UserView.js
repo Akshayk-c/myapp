@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-
 function UserView() {
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
@@ -34,8 +33,9 @@ function UserView() {
     }
     setRender(Math.random)
   }
-  function updateUser(id) {
-    console.log(id)
+  function updateUser(data) {
+    console.log(data)
+    
   }
 
   async function deleteUser  (id) {
@@ -113,7 +113,7 @@ function UserView() {
                 <td>{data.email}</td>
                 <td>{data.password}</td>
                 <td>
-                  <button onClick={(e) => updateUser(data)}>Edit</button>
+                <button onClick={(e) =>updateUser(data)}>hiiii</button>
                 </td>
                 <td>
                   <button onClick={(e) => deleteUser(data._id)}>Delete</button>

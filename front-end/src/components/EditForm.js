@@ -10,7 +10,7 @@ const data={
     console.log(name)
    }
 
-function EditForm() {
+function EditForm(props) {
   return (
     <>
    
