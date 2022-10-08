@@ -1,26 +1,31 @@
 import React from 'react'
-const data={
+
+const datas={
     '_id' :'63412cef842a8f832f2d0371',
      'fname': 'Ajay',
      'lname': 'rajan',
      'email': 'akshaykumarc666@gmail.com',
      'password': 'ww'
    }
-   function showUser(name){
-    console.log(name)
+   const formSubmit=(e)=>{
+    
    }
 
-function EditForm(props) {
+function EditForm() {
   return (
     <>
    
     <div>EditForm</div>
-    <form>
+    <script>
+    console.log(data)
+    </script>
+    
+    <form onSubmit={formSubmit}>
         <div>
           <input
             type="text"
             placeholder="Email"
-            defaultValue={data.email}
+            defaultValue={datas.email}
             id='email'
            
           />
@@ -30,7 +35,7 @@ function EditForm(props) {
             type="text"
             placeholder="First Name"
             id='fname'
-            defaultValue={data.fname}
+            defaultValue={datas.fname}
             
           />
         </div>
@@ -39,7 +44,7 @@ function EditForm(props) {
             type="text"
             placeholder="Last name"
             name="lname"
-            defaultValue={data.lname}
+            defaultValue={datas.lname}
           />
         </div>
         <div>
@@ -47,11 +52,11 @@ function EditForm(props) {
             type="text"
             placeholder="password"
             name="password"
-            defaultValue={data.password}
+            defaultValue={datas.password}
           />
         </div>
         <div>
-          <button type="submit" onClick={(e) => showUser(document.getElementById('email').value)}>
+          <button type="submit" >
             submit
           </button>
           <button type="reset">Reset</button>

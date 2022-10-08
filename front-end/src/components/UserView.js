@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom';
 
 function UserView() {
   const [fname, setFname] = useState("");
@@ -33,10 +34,10 @@ function UserView() {
     }
     setRender(Math.random)
   }
-  function updateUser(data) {
-    console.log(data)
+  // function updateUser(data) {
+  //   console.log(data)
     
-  }
+  // }
 
   async function deleteUser  (id) {
     try{
@@ -113,7 +114,8 @@ function UserView() {
                 <td>{data.email}</td>
                 <td>{data.password}</td>
                 <td>
-                <button onClick={(e) =>updateUser(data)}>hiiii</button>
+                
+                <Link to={`/edit/'${data._id}`} >edit</Link>
                 </td>
                 <td>
                   <button onClick={(e) => deleteUser(data._id)}>Delete</button>
