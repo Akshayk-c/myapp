@@ -34,7 +34,7 @@ function UserView() {
     }
     setRender(Math.random)
   }
-  function updateUser(id, e) {
+  function updateUser(id) {
     console.log(id)
   }
 

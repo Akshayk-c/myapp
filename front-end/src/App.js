@@ -1,4 +1,5 @@
 import React from 'react';
+import EditForm from './components/EditForm';
 import UserView from './components/UserView';
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <>
        
         <UserView/>
+        <EditForm/>
     </>
   );
 }
