@@ -1,33 +1,38 @@
 import React from 'react'
+import axios from 'axios'
 
-const datas={
-    '_id' :'63412cef842a8f832f2d0371',
-     'fname': 'Ajay',
-     'lname': 'rajan',
-     'email': 'akshaykumarc666@gmail.com',
-     'password': 'ww'
-   }
-   const formSubmit=(e)=>{
-    
-   }
+const datas = () => {
+  axios.get('http://localhost:5000/user')
+  .then(res => {
+    console.log(res.data._id)
+  })
+  .catch(err => {
+    console.log(err)
+  })
+
+}
+
+const formSubmit = (e) => {
+
+}
 
 function EditForm() {
   return (
     <>
-   
-    <div>EditForm</div>
-    <script>
-    console.log(data)
-    </script>
-    
-    <form onSubmit={formSubmit}>
+
+      <div>EditForm</div>
+      <script>
+        console.log(data)
+      </script>
+
+      <form onSubmit={formSubmit}>
         <div>
           <input
             type="text"
             placeholder="Email"
             defaultValue={datas.email}
             id='email'
-           
+
           />
         </div>
         <div>
@@ -36,7 +41,7 @@ function EditForm() {
             placeholder="First Name"
             id='fname'
             defaultValue={datas.fname}
-            
+
           />
         </div>
         <div>
@@ -61,7 +66,7 @@ function EditForm() {
           </button>
           <button type="reset">Reset</button>
         </div>
-    </form>
+      </form>
     </>
   )
 }

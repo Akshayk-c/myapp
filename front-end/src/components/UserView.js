@@ -3,10 +3,10 @@ import axios from 'axios'
 import { Link } from 'react-router-dom';
 
 function UserView() {
-  const [fname, setFname] = useState("");
-  const [lname, setLname] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  // const [fname, setFname] = useState("");
+  // const [lname, setLname] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
   const [users, setUsers] = useState([])
   const [render, setRender] = useState([])
   useEffect(() => {
@@ -19,21 +19,21 @@ function UserView() {
       })
     },[render])
 
-    async function addUser (e){
-    e.preventDefault()
-    try {
-      const resp =await axios.post("http://localhost:5000/user", {
-        email: email,
-        lname: lname,
-        fname: fname,
-        password: password,
-      });
-      if (resp.status === 200) alert("User Added successfuly")
-    } catch (error) {
-      console.log(error.resp);
-    }
-    setRender(Math.random)
-  }
+  //   async function addUser (e){
+  //   e.preventDefault()
+  //   try {
+  //     const resp =await axios.post("http://localhost:5000/user", {
+  //       email: email,
+  //       lname: lname,
+  //       fname: fname,
+  //       password: password,
+  //     });
+  //     if (resp.status === 200) alert("User Added successfuly")
+  //   } catch (error) {
+  //     console.log(error.resp);
+  //   }
+  //   setRender(Math.random)
+  // }
   // function updateUser(data) {
   //   console.log(data)
     
@@ -55,47 +55,8 @@ function UserView() {
 
   return (
     <>
-      <div>
-        <div>
-          <input
-            type="text"
-            placeholder="Email"
-            name="email"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div>
-          <input
-            type="text"
-            placeholder="First Name"
-            name="fname"
-            onChange={(e) => setFname(e.target.value)}
-          />
-        </div>
-        <div>
-          <input
-            type="text"
-            placeholder="Last name"
-            name="lname"
-            onChange={(e) => setLname(e.target.value)}
-          />
-        </div>
-        <div>
-          <input
-            type="text"
-            placeholder="password"
-            name="password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <div>
-          <button type="submit" onClick={addUser}>
-            Add
-          </button>
-          <button type="reset">Reset</button>
-        </div>
-      </div>
       <label style={{ fontSize: 'large' }}>USER DETAILS</label>
+      <Link to={`/view`} >Add New User</Link>
       <table style={{ border: 'double' }} >
         <thead><tr>
           <th>First name</th>
