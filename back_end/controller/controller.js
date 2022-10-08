@@ -2,9 +2,10 @@ const Userdb = require('../model/model')
 
 exports.create = (req,res)=>{
     if (Object.keys(req.body).length === 0) {
-        res.status(400).send({ message: "Content cannot be empty" });
+        res.status(204).send({ message: "Content cannot be empty" });
         return;
       }
+      
     const user= new Userdb({
         fname: req.body.fname,
         lname: req.body.lname,
@@ -15,7 +16,8 @@ exports.create = (req,res)=>{
     .then(data=>{
         res.send(data)
     }).catch(err=>{
-        res.send({message:"error while push"})
+        console.log(err)
+        res.status(400).send({message:err})
     })
 }
 
@@ -26,6 +28,7 @@ exports.findall = (req,res)=>{
         console.log(data)
     })
     .catch(err=>{
+        console.log(err)
         res.send("error while fetch")
     })
 }
@@ -40,7 +43,8 @@ exports.update = async (req,res)=>{
         var data = await Userdb.findByIdAndUpdate(id,req.body,{ new: true})
         res.json(data)
     }
-    catch{
+    catch(err){
+        console.log(err)
         res.status(400).send({ message: "error while update" })
     }
 }
@@ -51,7 +55,8 @@ exports.delete =async (req,res)=>{
         var data = await Userdb.findByIdAndDelete(id)
         if(data==null){res.send("User doesn't exist")}
         else{res.json(data)}
-    }catch{
+    }catch(err){
+        console.log(err)
         res.status(400).send({ message: "error while update" })
     }
 }
@@ -63,7 +68,8 @@ exports.find = async (req,res)=>{
         if(data==null){res.send("User doesn't exist")}
         else{res.json(data)}
         
-    }catch{
+    }catch(err){
+        console.log(err)
         res.status(400).send({ message: "error while fetching" })
     }  
 }
