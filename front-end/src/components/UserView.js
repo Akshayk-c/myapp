@@ -8,8 +8,7 @@ function UserView() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [users, setUsers] = useState([])
-  const [render, setRender] = useState("")
-
+  const [render, setRender] = useState([])
   useEffect(() => {
     axios.get('http://localhost:5000/user')
       .then(res => {
@@ -18,12 +17,12 @@ function UserView() {
       .catch(err => {
         console.log(err)
       })
-    },[render,deleteUser])
+    },[render])
 
-  const addUser = async (e) => {
+    async function addUser (e){
     e.preventDefault()
     try {
-      const resp = await axios.post("http://localhost:5000/user", {
+      const resp =await axios.post("http://localhost:5000/user", {
         email: email,
         lname: lname,
         fname: fname,
@@ -33,24 +32,24 @@ function UserView() {
     } catch (error) {
       console.log(error.resp);
     }
-  setRender(Math.random)
+    setRender(Math.random)
   }
   function updateUser(id, e) {
     console.log(id)
-    setFname(id.fname)
-    console.log(fname)
   }
 
-  function deleteUser  (id, e) {
-    e.preventDefault()
+  async function deleteUser  (id) {
     try{
-      axios.delete(`http://localhost:5000/user/${id}`)
-        .then(res => alert("User deleted successfuly"))
-        .catch(error => { console.log(error) })
+      const res =await axios.delete(`http://localhost:5000/user/${id}`)
+        try{
+        if(res.status ===200)
+        {alert("User deleted successfuly")}}
+        catch(error){ console.log(error) }
       } 
       catch (error) {
         console.log(error.resp);
       }
+       setRender(Math.random)
   }
 
   return (
@@ -117,7 +116,7 @@ function UserView() {
                   <button onClick={(e) => updateUser(data)}>Edit</button>
                 </td>
                 <td>
-                  <button onClick={(e) => deleteUser(data._id,e)}>Delete</button>
+                  <button onClick={(e) => deleteUser(data._id)}>Delete</button>
                 </td></tr>
             ))
           }
