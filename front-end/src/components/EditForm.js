@@ -1,10 +1,11 @@
 import React, { useState   } from 'react'
 import axios from 'axios'
-import {useLocation} from 'react-router-dom'
+import {useLocation,useNavigate} from 'react-router-dom'
 
 function EditForm() {
 const loc=useLocation()
 const data=(loc.state)
+const navigate = useNavigate()
 const [email, setEmail] = useState(data.email)
 const [fname, setFname] = useState(data.fname)
 const [lname, setLname] = useState(data.lname)
@@ -20,6 +21,7 @@ const formSubmit =async (e) => {
     });
     if (res.status === 200){
       alert("User Added successfuly")
+      navigate('/')
     } 
   } catch (error) {
     console.log(error);
@@ -29,12 +31,21 @@ const formSubmit =async (e) => {
     <>
       <div>EditForm</div>
       <form >
+      <div><label>ID</label><br></br>
+          <input
+            type="text"
+            name="id"
+            value={data._id}
+            readOnly
+          />
+        </div>
         <div><label>Email</label><br></br>
           <input
             type="text"
             placeholder="Email"
             defaultValue={data.email}
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
         </div>
         <div><label>First Name</label><br></br>
@@ -64,7 +75,7 @@ const formSubmit =async (e) => {
             defaultValue={data.password}
             onChange={(e) => setPassword(e.target.value)}
           />
-        </div>
+          </div>
         <div>
           <button type="submit" onClick={formSubmit} >
             submit

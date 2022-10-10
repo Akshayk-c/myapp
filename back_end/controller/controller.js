@@ -2,10 +2,9 @@ const Userdb = require('../model/model')
 
 exports.create = (req,res)=>{
     if (Object.keys(req.body).length === 0) {
-        res.status(204).send({ message: "Content cannot be empty" });
-        return;
+        res.status(204).send({message:"Content cannot be empty"})
+        return
       }
-      
     const user= new Userdb({
         fname: req.body.fname,
         lname: req.body.lname,

@@ -5,10 +5,10 @@ import axios from 'axios'
 
 function NewUser() {
 
-const [fname, setFname] = useState("");
-const [lname, setLname] = useState("");
-const [email, setEmail] = useState("");
-const [password, setPassword] = useState("");
+const [fname, setFname] = useState('');
+const [lname, setLname] = useState('');
+const [email, setEmail] = useState('');
+const [password, setPassword] = useState('');
 const navigate = useNavigate();
 async function addUser (e){
     e.preventDefault()
@@ -17,7 +17,7 @@ async function addUser (e){
         email: email,
         lname: lname,
         fname: fname,
-        password: password,
+        password: password
       });
       if (resp.status === 200){
         alert("User Added successfuly")
@@ -29,7 +29,7 @@ async function addUser (e){
   }
   
   return (
-    <>
+    <form>
     <div>NewUser</div>
     <div><label>Email</label><br></br>
           <input
@@ -75,7 +75,7 @@ async function addUser (e){
           </button>
           <button type="reset">Reset</button>
         </div>
-        </>
+        </form>
   )
 }
 
