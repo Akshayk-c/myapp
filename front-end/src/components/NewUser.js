@@ -6,7 +6,7 @@ import axios from 'axios'
 
   
 
-function NewUser() {
+
  
 const [fname, setFname] = useState("");
 const [lname, setLname] = useState("");
@@ -16,7 +16,6 @@ const navigate = useNavigate();
 async function addUser (e){
     e.preventDefault()
     try {
-        
       const resp =await axios.post("http://localhost:5000/user", {
         email: email,
         lname: lname,
@@ -29,9 +28,9 @@ async function addUser (e){
       } 
     } catch (error) {
       console.log(error);
-    }
-    
+    } 
   }
+  function NewUser() {
   return (
     <>
     <div>NewUser</div>

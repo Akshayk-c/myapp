@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect,  } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom';
 
-function UserView() {
+
+  
   // const [fname, setFname] = useState("");
   // const [lname, setLname] = useState("");
   // const [email, setEmail] = useState("");
@@ -52,7 +53,7 @@ function UserView() {
       }
        setRender(Math.random)
   }
-
+  function UserView() {
   return (
     <>
       <label style={{ fontSize: 'large' }}>USER DETAILS</label>
@@ -76,7 +77,7 @@ function UserView() {
                 <td>{data.password}</td>
                 <td>
                 
-                <Link to={`/edit/'${data._id}`} >edit</Link>
+                <Link to={`/edit/${data._id}`} state={data}>edit</Link>
                 </td>
                 <td>
                   <button onClick={(e) => deleteUser(data._id)}>Delete</button>

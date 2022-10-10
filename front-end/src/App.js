@@ -11,7 +11,7 @@ function App() {
         <Routes>
           <Route path="/view" element={<NewUser />} />
           <Route path="/" element={<UserView />} />
-          <Route path={`/edit/'${'63412ce2842a8f832f2d036e'}`} element={<EditForm />} />
+          <Route path={"/edit/:id"} element={<EditForm />} />
           
         </Routes>
       </Router>

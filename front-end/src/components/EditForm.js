@@ -1,19 +1,10 @@
 import React from 'react'
 import axios from 'axios'
+import {useLocation} from 'react-router-dom'
 
-const datas = () => {
-  axios.get('http://localhost:5000/user')
-  .then(res => {
-    console.log(res.data._id)
-  })
-  .catch(err => {
-    console.log(err)
-  })
-
-}
-
+const loc=useLocation()
+const data=(loc.state)
 const formSubmit = (e) => {
-
 }
 
 function EditForm() {
@@ -21,16 +12,13 @@ function EditForm() {
     <>
 
       <div>EditForm</div>
-      <script>
-        console.log(data)
-      </script>
 
       <form onSubmit={formSubmit}>
         <div>
           <input
             type="text"
             placeholder="Email"
-            defaultValue={datas.email}
+            defaultValue={data.email}
             id='email'
 
           />
@@ -40,7 +28,7 @@ function EditForm() {
             type="text"
             placeholder="First Name"
             id='fname'
-            defaultValue={datas.fname}
+            defaultValue={data.fname}
 
           />
         </div>
@@ -49,7 +37,7 @@ function EditForm() {
             type="text"
             placeholder="Last name"
             name="lname"
-            defaultValue={datas.lname}
+            defaultValue={data.lname}
           />
         </div>
         <div>
@@ -57,7 +45,7 @@ function EditForm() {
             type="text"
             placeholder="password"
             name="password"
-            defaultValue={datas.password}
+            defaultValue={data.password}
           />
         </div>
         <div>
