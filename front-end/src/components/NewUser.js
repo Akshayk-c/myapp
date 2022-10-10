@@ -6,7 +6,7 @@ import axios from 'axios'
 
   
 
-
+function NewUser() {
  
 const [fname, setFname] = useState("");
 const [lname, setLname] = useState("");
@@ -30,7 +30,7 @@ async function addUser (e){
       console.log(error);
     } 
   }
-  function NewUser() {
+  
   return (
     <>
     <div>NewUser</div>

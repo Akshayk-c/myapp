@@ -2,12 +2,13 @@ import React from 'react'
 import axios from 'axios'
 import {useLocation} from 'react-router-dom'
 
+function EditForm() {
 const loc=useLocation()
 const data=(loc.state)
 const formSubmit = (e) => {
 }
 
-function EditForm() {
+
   return (
     <>
 

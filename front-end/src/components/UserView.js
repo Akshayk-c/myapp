@@ -3,7 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom';
 
 
-  
+function UserView() {
   // const [fname, setFname] = useState("");
   // const [lname, setLname] = useState("");
   // const [email, setEmail] = useState("");
@@ -53,7 +53,7 @@ import { Link } from 'react-router-dom';
       }
        setRender(Math.random)
   }
-  function UserView() {
+  
   return (
     <>
       <label style={{ fontSize: 'large' }}>USER DETAILS</label>
