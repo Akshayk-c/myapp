@@ -3,11 +3,8 @@ import React, { useState   } from 'react'
 import {useNavigate} from "react-router-dom"
 import axios from 'axios'
 
-
-  
-
 function NewUser() {
- 
+
 const [fname, setFname] = useState("");
 const [lname, setLname] = useState("");
 const [email, setEmail] = useState("");
@@ -34,16 +31,17 @@ async function addUser (e){
   return (
     <>
     <div>NewUser</div>
-    <div>
+    <div><label>Email</label><br></br>
           <input
             type="text"
             placeholder="Email"
             name="email"
-            onChange={(e) => setEmail(e.target.value)}
             required
+            onChange={(e) => setEmail(e.target.value)}
+            
           />
         </div>
-        <div>
+        <div><label>First Name</label><br></br>
           <input
             type="text"
             placeholder="First Name"
@@ -52,7 +50,7 @@ async function addUser (e){
             required
           />
         </div>
-        <div>
+        <div><label>Last Name</label><br></br>
           <input
             type="text"
             placeholder="Last name"
@@ -62,7 +60,7 @@ async function addUser (e){
 
           />
         </div>
-        <div>
+        <div><label>Password</label><br></br>
           <input
             type="text"
             placeholder="password"
@@ -70,7 +68,7 @@ async function addUser (e){
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-        </div>
+        </div><br></br>
         <div>
           <button type="submit" onClick={addUser}>
             Add
