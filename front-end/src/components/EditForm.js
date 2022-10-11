@@ -30,7 +30,7 @@ const formSubmit =async (e) => {
   return (
     <>
       <div>EditForm</div>
-      <form >
+      <form onSubmit={formSubmit}>
       <div><label>ID</label><br></br>
           <input
             type="text"
@@ -55,7 +55,7 @@ const formSubmit =async (e) => {
             id='fname'
             defaultValue={data.fname}
             onChange={(e) => setFname(e.target.value)}
-
+            required
           />
         </div>
         <div><label>Last Name</label><br></br>
@@ -65,6 +65,7 @@ const formSubmit =async (e) => {
             name="lname"
             defaultValue={data.lname}
             onChange={(e) => setLname(e.target.value)}
+            required
           />
         </div>
         <div><label>Password</label><br></br>
@@ -74,13 +75,14 @@ const formSubmit =async (e) => {
             name="password"
             defaultValue={data.password}
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
           </div>
         <div>
-          <button type="submit" onClick={formSubmit} >
+          <button type="submit">
             submit
           </button>
-          <button type="reset">Reset</button>
+          <button type="reset" >Reset</button>
         </div>
       </form>
     </>
