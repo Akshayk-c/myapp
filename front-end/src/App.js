@@ -9,7 +9,7 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path="/view" element={<NewUser />} />
+          <Route path="/New_user" element={<NewUser />} />
           <Route path="/" element={<UserView />} />
           <Route path={"/edit/:id"} element={<EditForm />} />
           

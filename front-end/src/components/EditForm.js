@@ -29,7 +29,7 @@ const formSubmit =async (e) => {
 }
   return (
     <>
-      <div>EditForm</div>
+      <div>EditForm</div><br></br>
       <form onSubmit={formSubmit}>
       <div><label>ID</label><br></br>
           <input
@@ -77,7 +77,7 @@ const formSubmit =async (e) => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          </div>
+          </div><br></br>
         <div>
           <button type="submit">
             submit

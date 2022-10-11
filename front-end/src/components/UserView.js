@@ -56,11 +56,11 @@ const searchSubmit  =async (e,searchName)=>{
   return (
     <>
       <label style={{ fontSize: 'large' }}>USER DETAILS</label>
-      <Link to={`/view`} >Add New User</Link>
-      <form >
+      <Link to={`/New_user`} >Register User</Link>
+      <form ><br></br>
       <input ref={ref} placeholder='Search..'  onChange={(e) => setSearch(e.target.value)}></input>
       <button onClick={(e)=>searchSubmit(e,search) }> . </button>
-     </form>
+     </form><br></br>
        <table style={{ border: 'double' }} >
         <thead><tr>
           <th>First name</th>
