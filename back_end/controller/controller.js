@@ -63,9 +63,11 @@ exports.delete =async (req,res)=>{
 exports.find = async (req,res)=>{
     try{
         const id = req.params.id
-        var data = await Userdb.findById(id)
+        var data = await Userdb.find(id)
         if(data==null){res.send("User doesn't exist")}
-        else{res.json(data)}
+        else{
+            console.log(data)
+            res.json(data)}
         
     }catch(err){
         console.log(err)

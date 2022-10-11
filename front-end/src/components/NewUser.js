@@ -5,10 +5,10 @@ import axios from 'axios'
 
 function NewUser() {
 
-const [fname, setFname] = useState('');
-const [lname, setLname] = useState('');
-const [email, setEmail] = useState('');
-const [password, setPassword] = useState('');
+const [fname, setFname] = useState('')
+const [lname, setLname] = useState('')
+const [email, setEmail] = useState('')
+const [password, setPassword] = useState('')
 const navigate = useNavigate();
 async function addUser (e){
     e.preventDefault()
@@ -29,34 +29,37 @@ async function addUser (e){
   }
   
   return (
-    <form>
+    <form onSubmit={addUser}>
     <div>NewUser</div>
     <div><label>Email</label><br></br>
           <input
+           required="required"
             type="text"
             placeholder="Email"
             name="email"
-            required
+            
             onChange={(e) => setEmail(e.target.value)}
             
           />
         </div>
         <div><label>First Name</label><br></br>
           <input
+           required="required"
             type="text"
             placeholder="First Name"
             name="fname"
             onChange={(e) => setFname(e.target.value)}
-            required
+            
           />
         </div>
         <div><label>Last Name</label><br></br>
           <input
+           required="required"
             type="text"
             placeholder="Last name"
             name="lname"
             onChange={(e) => setLname(e.target.value)}
-            required
+            
 
           />
         </div>
@@ -66,11 +69,11 @@ async function addUser (e){
             placeholder="password"
             name="password"
             onChange={(e) => setPassword(e.target.value)}
-            required
+            required="required"
           />
         </div><br></br>
         <div>
-          <button type="submit" onClick={addUser}>
+          <button type="submit" >
             Add
           </button>
           <button type="reset">Reset</button>
