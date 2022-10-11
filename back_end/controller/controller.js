@@ -62,13 +62,11 @@ exports.delete =async (req,res)=>{
 
 exports.find = async (req,res)=>{
     try{
-        const id = req.params.id
-        var data = await Userdb.find(id)
-        if(data==null){res.send("User doesn't exist")}
-        else{
-            console.log(data)
-            res.json(data)}
-        
+        key=req.params.fname
+        console.log(key)
+        var data = await Userdb.find({fname :  key } )
+        if(data==null)res.send("User doesn't exist")
+        else res.json(data)
     }catch(err){
         console.log(err)
         res.status(400).send({ message: "error while fetching" })

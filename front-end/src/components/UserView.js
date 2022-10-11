@@ -1,13 +1,12 @@
-import React, { useState, useEffect,  } from 'react'
+import React, { useState, useEffect, useRef  } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom';
 
 
+
 function UserView() {
-  // const [fname, setFname] = useState("");
-  // const [lname, setLname] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
+  const ref=useRef(null)
+  const [search,setSearch]=useState("")
   const [users, setUsers] = useState([])
   const [render, setRender] = useState([])
   useEffect(() => {
@@ -20,26 +19,26 @@ function UserView() {
       })
     },[render])
 
-  //   async function addUser (e){
-  //   e.preventDefault()
-  //   try {
-  //     const resp =await axios.post("http://localhost:5000/user", {
-  //       email: email,
-  //       lname: lname,
-  //       fname: fname,
-  //       password: password,
-  //     });
-  //     if (resp.status === 200) alert("User Added successfuly")
-  //   } catch (error) {
-  //     console.log(error.resp);
-  //   }
-  //   setRender(Math.random)
-  // }
-  // function updateUser(data) {
-  //   console.log(data)
-    
-  // }
 
+const searchSubmit  =async (e,searchName)=>{
+  e.preventDefault()
+  await axios.get(`http://localhost:5000/user/${searchName}`)
+  .then(result => {
+    console.log(result.data)
+    if(result.data.length===0)
+    {alert(` ${searchName} doesn't existed`)
+    setRender(Math.random)
+  }
+    else {
+      setUsers(result.data)
+      }
+  })
+  .catch(err => {
+    console.log(err)
+  })
+  ref.current.value=""
+  setSearch("")
+}
   async function deleteUser  (id) {
     try{
       const res =await axios.delete(`http://localhost:5000/user/${id}`)
@@ -58,7 +57,11 @@ function UserView() {
     <>
       <label style={{ fontSize: 'large' }}>USER DETAILS</label>
       <Link to={`/view`} >Add New User</Link>
-      <table style={{ border: 'double' }} >
+      <form >
+      <input ref={ref} placeholder='Search..'  onChange={(e) => setSearch(e.target.value)}></input>
+      <button onClick={(e)=>searchSubmit(e,search) }> . </button>
+     </form>
+       <table style={{ border: 'double' }} >
         <thead><tr>
           <th>First name</th>
           <th>Last name</th>

@@ -4,7 +4,7 @@ var controller = require('../controller/controller')
 
 routers.get('/',controller.findall)
 routers.post('/',controller.create)
-routers.get('/:id',controller.find)
+routers.get('/:fname',controller.find)
 routers.put('/:id',controller.update)
 routers.delete('/:id',controller.delete)
 
