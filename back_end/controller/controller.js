@@ -73,9 +73,18 @@ exports.find = async (req,res)=>{
     }  
 }
 
-exports.login = (req,res)=>{
-    console.log(req.body)
-   console.log("hi")
+exports.login = async(req,res)=>{
+    
+    const email=req.body.email
+    const pswrd=req.body.password
+    const data =await  Userdb.findOne({ email : email})
+    if(data===null) {
+        res.send("User email doesn't exist")
+         return}
+    if(data.password === pswrd) res.send("user exist")
+    else res.send("wrong password")
+    
+   
 }
 
 exports.register = (req,res)=>{

@@ -8,6 +8,6 @@ routers.get('/:fname',controller.find)
 routers.put('/:id',controller.update)
 routers.delete('/:id',controller.delete)
 routers.post('/login',controller.login)
-routers.post('/login',controller.register)
+routers.post('/register',controller.register)
 
 module.exports = routers;
