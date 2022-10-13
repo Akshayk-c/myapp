@@ -72,3 +72,28 @@ exports.find = async (req,res)=>{
         res.status(400).send({ message: "error while fetching" })
     }  
 }
+
+exports.login = (req,res)=>{
+    console.log(req.body)
+   console.log("hi")
+}
+
+exports.register = (req,res)=>{
+    if (Object.keys(req.body).length === 0) {
+        res.status(204).send({message:"Content cannot be empty"})
+        return
+      }
+    const user= new Userdb({
+        fname: req.body.fname,
+        lname: req.body.lname,
+        email: req.body.email,
+        password: req.body.password,
+    })
+    user.save(user)
+    .then(data=>{
+        res.send(data)
+    }).catch(err=>{
+        console.log(err)
+        res.status(400).send({message:err})
+    })
+}
