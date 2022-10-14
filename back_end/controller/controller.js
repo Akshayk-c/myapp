@@ -80,7 +80,7 @@ exports.login = async(req,res)=>{
     const pswrd=req.body.password
     const data =await  Userdb.findOne({ email : email})
     if(data===null) {
-        res.send("User email doesn't exist")
+        res.status(401).send("User email doesn't exist")
          return}
     if(data.password === pswrd){
         
@@ -90,7 +90,7 @@ exports.login = async(req,res)=>{
             message :"Valid user",
             token  :"Bearer " + token})
     }
-    else return res.send("wrong password")
+    else return res.status(401).send("wrong password")
     
    
 }
