@@ -26,7 +26,7 @@ exports.findall = (req,res)=>{
     Userdb.find()
     .then(data=>{
         res.send(data)
-        console.log(data)
+        console.log("fetch successfull")
     })
     .catch(err=>{
         console.log(err)
