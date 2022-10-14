@@ -84,11 +84,11 @@ exports.login = async(req,res)=>{
          return}
     if(data.password === pswrd){
         
-        const payload={ id : data.id , role :data.admin }
+        const payload={ id : data.id , admin : data.admin }
         const token = jwt.sign(payload, "key",{expiresIn:"1d"})
         res.status(200).send({
             message :"Valid user",
-            "token " : token})
+            token  :"Bearer " + token})
     }
     else return res.send("wrong password")
     
