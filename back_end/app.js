@@ -5,8 +5,7 @@ var port=5000
 const connectDB=require('./database/connection')
 const morgan=require('morgan')
 var cors = require('cors')
-const passport =require('passport')
-require('./passport')
+const passport =require('passport')('./passport')
 
 
 app.use(cors())
