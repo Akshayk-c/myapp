@@ -18,7 +18,7 @@ var schema = new mongoose.Schema({
          type : String,
          required : true
       },
-      role: {
+      admin: {
          type : Boolean
       }
    });

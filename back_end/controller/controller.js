@@ -1,3 +1,4 @@
+const jwt = require('jsonwebtoken')
 const Userdb = require('../model/model')
 
 exports.create = (req,res)=>{
@@ -81,8 +82,15 @@ exports.login = async(req,res)=>{
     if(data===null) {
         res.send("User email doesn't exist")
          return}
-    if(data.password === pswrd) res.send("user exist")
-    else res.send("wrong password")
+    if(data.password === pswrd){
+        
+        const payload={ id : data.id , role :data.admin }
+        const token = jwt.sign(payload, "key",{expiresIn:"1d"})
+        res.status(200).send({
+            message :"Valid user",
+            "token " : token})
+    }
+    else return res.send("wrong password")
     
    
 }
@@ -97,10 +105,11 @@ exports.register = (req,res)=>{
         lname: req.body.lname,
         email: req.body.email,
         password: req.body.password,
+        admin : req.body.admin
     })
     user.save(user)
     .then(data=>{
-        res.send(data)
+        res.status(200).send("User registered successfully")
     }).catch(err=>{
         console.log(err)
         res.status(400).send({message:err})
