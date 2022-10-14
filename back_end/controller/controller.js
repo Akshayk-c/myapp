@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken')
 const Userdb = require('../model/model')
 
+
 exports.create = (req,res)=>{
     if (Object.keys(req.body).length === 0) {
         res.status(204).send({message:"Content cannot be empty"})
@@ -75,6 +76,7 @@ exports.find = async (req,res)=>{
 }
 
 exports.login = async(req,res)=>{
+    try{
     
     const email=req.body.email
     const pswrd=req.body.password
@@ -90,8 +92,12 @@ exports.login = async(req,res)=>{
             message :"Valid user",
             token  :"Bearer " + token})
     }
+
     else return res.status(401).send("wrong password")
-    
+}
+catch(err){
+    console.log(err)
+}
    
 }
 
