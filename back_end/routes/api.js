@@ -4,14 +4,15 @@ var controller = require('../controller/controller')
 const passport =require('passport')
 require('../passport')
 
-var isTokenValid =passport.authenticate('jwt',{session : false})
-console.log( isTokenValid)
 
-routers.get('/', isTokenValid ,controller.findall)
-routers.post('/', isTokenValid , controller.create)
-routers.get('/:fname', isTokenValid , controller.find)
-routers.put('/:id', isTokenValid , controller.update)
-routers.delete('/:id', isTokenValid , controller.delete)
+//console.log(isTokenValid)
+routers.get('/',passport.authenticate('jwt',{session : false}),controller.findall,(req,res)=>{
+    console.log(req)
+})
+routers.post('/',  controller.create)
+routers.get('/:fname',  controller.find)
+routers.put('/:id',  controller.update)
+routers.delete('/:id',  controller.delete)
 routers.post('/login',controller.login)
 routers.post('/register',controller.register)
 
