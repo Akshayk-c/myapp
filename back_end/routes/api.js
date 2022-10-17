@@ -24,4 +24,4 @@ routers.use(passport.authenticate('admin',{session : false}),(req,res,next)=>{
 
 
 module.exports = routers;
-//Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDkxMWZhNGI1M2MxOWQ5YWI3ZDBiMiIsImlhdCI6MTY2NTkyNTAxMywiZXhwIjoxNjY2MDExNDEzfQ.HKWYrsmGYOGdWEOuWV7rYgKpEkWnSNms8MuDz__0UC8
+//Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDkxMWZhNGI1M2MxOWQ5YWI3ZDBiMiIsImlhdCI6MTY2NjAzMDM3MCwiZXhwIjoxNjY2MTE2NzcwfQ.2mbULHPknnsKR3evOk8KvVQEt9ytAU-E31enK9AF3TA
