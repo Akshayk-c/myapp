@@ -1,6 +1,17 @@
 const jwt = require('jsonwebtoken')
 const Userdb = require('../model/model')
 
+exports.profile = async (req,res)=>{
+    try{
+        const id = req.params.id
+        var data = await Userdb.findById(id)
+        if(!data) res.status(404).send("User doesn't exist")
+        else res.status(200).json(data)
+    }catch(err){
+        console.log(err)
+        res.status(400).send({ message: "error while fetching" })
+    }  
+}
 
 exports.create = (req,res)=>{
     if (Object.keys(req.body).length === 0) {
@@ -74,6 +85,7 @@ exports.find = async (req,res)=>{
         res.status(400).send({ message: "error while fetching" })
     }  
 }
+
 
 exports.login = async(req,res)=>{
     try{

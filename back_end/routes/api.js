@@ -5,15 +5,14 @@ const passport =require('passport')
 require('../passport')
 
 
-
-
 routers.post('/login',controller.login)
 routers.post('/register',controller.register)
 routers.use(passport.authenticate('user',{session : false}),(req,res,next)=>{
-console.log(req.user)
+// console.log(req.user)
  next()} )
- routers.put('/:id',  controller.update)
- routers.get('/',controller.findall)
+routers.get('/profile/:id', controller.profile)
+routers.put('/:id',  controller.update)
+routers.get('/',controller.findall)
 routers.post('/',  controller.create)
 routers.get('/:fname',  controller.find)
 routers.delete('/:id',  controller.delete)
