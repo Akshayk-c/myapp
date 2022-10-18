@@ -11,15 +11,16 @@ routers.use(passport.authenticate('user',{session : false}),(req,res,next)=>{
 console.log(req.user)
 next()} )
 routers.get('/profile/:id', controller.profile)
+routers.use(passport.authenticate('admin',{session : false}),(req,res,next)=>{
+    console.log(req.user)
+     next()} )
 routers.put('/:id',  controller.update)
 routers.get('/',controller.findall)
 routers.post('/',  controller.create)
 routers.get('/:fname',  controller.find)
 routers.delete('/:id',  controller.delete)
 
-routers.use(passport.authenticate('admin',{session : false}),(req,res,next)=>{
-    console.log(req.user)
-     next()} )
+
 
 
 

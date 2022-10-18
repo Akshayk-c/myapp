@@ -52,6 +52,7 @@ const searchSubmit  =async (e,searchName)=>{
       }
        setRender(Math.random)
   }
+ 
   
   return (
     <>
@@ -66,6 +67,7 @@ const searchSubmit  =async (e,searchName)=>{
           <th>Last name</th>
           <th>Email id</th>
           <th>Password</th>
+          <th>Role</th>
           <th>Edit</th>
           <th>Delete</th></tr>
         </thead>
@@ -77,9 +79,9 @@ const searchSubmit  =async (e,searchName)=>{
                 <td>{data.lname}</td>
                 <td>{data.email}</td>
                 <td>{data.password}</td>
+                <td>{data.admin.toString()===`true`?`Admin`:`User`}</td>
                 <td>
-                
-                <Link to={`/edit/${data._id}`} state={data}>edit</Link>
+                <Link to={`/edit`} state={data}>edit</Link>
                 </td>
                 <td>
                   <button onClick={(e) => deleteUser(data._id)}>Delete</button>

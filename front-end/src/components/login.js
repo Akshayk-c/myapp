@@ -1,5 +1,5 @@
 import React, { useState   } from 'react'
-import { useNavigate} from "react-router-dom"
+import {  Link ,useNavigate} from "react-router-dom"
 import axios from 'axios'
 
 function login() {
@@ -58,6 +58,7 @@ function login() {
           </button>
           <button type="reset">Reset</button>
         </div>
+        <Link to={`/register`} >New user ? Sign up</Link>
         </form>
 
   )

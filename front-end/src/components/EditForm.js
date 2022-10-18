@@ -6,6 +6,7 @@ function EditForm() {
 const loc=useLocation()
 const data=(loc.state)
 const navigate = useNavigate()
+const [admin, setAdmin] = useState(data.admin)
 const [email, setEmail] = useState(data.email)
 const [fname, setFname] = useState(data.fname)
 const [lname, setLname] = useState(data.lname)
@@ -18,10 +19,11 @@ const formSubmit =async (e) => {
       lname: lname,
       fname: fname,
       password: password,
+      admin : admin
     });
     if (res.status === 200){
       alert("User Added successfuly")
-      navigate('/')
+      navigate('/view')
     } 
   } catch (error) {
     console.log(error);
@@ -77,6 +79,22 @@ const formSubmit =async (e) => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+          </div><br></br>
+          <label>Admin</label>
+          <div>
+            <label><input 
+          type='radio' 
+          name='admin'
+          defaultChecked={data.admin}
+          onClick={(e)=>setAdmin('true')}></input>Yes
+          </label>
+          <label>
+          <input 
+          type='radio'
+          name='admin'
+          defaultChecked={!(data.admin)}
+          onClick={(e)=>setAdmin('false')}></input>No
+          </label>
           </div><br></br>
         <div>
           <button type="submit">
