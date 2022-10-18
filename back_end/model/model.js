@@ -19,7 +19,8 @@ var schema = new mongoose.Schema({
          required : true
       },
       admin: {
-         type : Boolean
+         type : Boolean,
+         required : true
       }
    });
 

@@ -1,20 +1,21 @@
-
 import React, { useState   } from 'react'
 import {useNavigate} from "react-router-dom"
 import axios from 'axios'
 
-function NewUser() {
-axios.defaults.headers.common={'Authorization': sessionStorage.getItem('Token') }
-const [fname, setFname] = useState('')
-const [lname, setLname] = useState('')
-const [email, setEmail] = useState('')
-const [password, setPassword] = useState('')
-const [admin, setAdmin] = useState('false')
-const navigate = useNavigate();
+
+function register() {
+  
+    const [fname, setFname] = useState('')
+    const [lname, setLname] = useState('')
+    const [email, setEmail] = useState('')
+    const [admin, setAdmin] = useState('false')
+    const [password, setPassword] = useState('')
+    const navigate = useNavigate();
+
 async function addUser (e){
     e.preventDefault()
     try {
-      const resp =await axios.post("http://localhost:5000/user", {
+      const resp =await axios.post("http://localhost:5000/user/register", {
         email: email,
         lname: lname,
         fname: fname,
@@ -23,16 +24,17 @@ async function addUser (e){
       });
       if (resp.status === 200){
         alert("User Added successfuly")
-       navigate('/view');
+       navigate('/');
       } 
     } catch (error) {
       console.log(error);
     } 
   }
   
+  
   return (
     <form onSubmit={addUser}>
-    <div>NewUser</div>
+    <div>SIGN UP</div><br></br>
     <div><label>Email</label><br></br>
           <input
            required="required"
@@ -97,4 +99,4 @@ async function addUser (e){
   )
 }
 
-export default NewUser
+export default register

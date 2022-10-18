@@ -23,6 +23,7 @@ exports.create = (req,res)=>{
         lname: req.body.lname,
         email: req.body.email,
         password: req.body.password,
+        admin : req.body.admin
     })
     user.save(user)
     .then(data=>{
@@ -89,7 +90,6 @@ exports.find = async (req,res)=>{
 
 exports.login = async(req,res)=>{
     try{
-    
     const email=req.body.email
     const pswrd=req.body.password
     const data =await  Userdb.findOne({ email : email})
@@ -104,6 +104,7 @@ exports.login = async(req,res)=>{
             data,
             message :"Valid user",
             token  :"Bearer " + token})
+            
     }
 
     else return res.status(401).send("wrong password")

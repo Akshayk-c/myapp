@@ -3,8 +3,8 @@ import axios from 'axios'
 import { Link } from 'react-router-dom';
 
 
-
 function UserView() {
+  axios.defaults.headers.common={'Authorization': sessionStorage.getItem('Token') }
   const ref=useRef(null)
   const [search,setSearch]=useState("")
   const [users, setUsers] = useState([])
@@ -56,7 +56,6 @@ const searchSubmit  =async (e,searchName)=>{
   return (
     <>
       <label style={{ fontSize: 'large' }}>USER DETAILS</label>
-      <Link to={`/New_user`} >Register User</Link>
       <form ><br></br>
       <input ref={ref} placeholder='Search..'  onChange={(e) => setSearch(e.target.value)}></input>
       <button onClick={(e)=>searchSubmit(e,search) }> . </button>
