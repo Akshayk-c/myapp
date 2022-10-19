@@ -1,6 +1,6 @@
 import React, { useState   } from 'react'
 import axios from 'axios'
-import {useLocation,useNavigate} from 'react-router-dom'
+import {useLocation,useNavigate,Link} from 'react-router-dom'
 
 function EditForm() {
 const loc=useLocation()
@@ -102,6 +102,7 @@ const formSubmit =async (e) => {
           </button>
           <button type="reset" >Reset</button>
         </div>
+        <Link to="/view">Go back</Link>
       </form>
     </>
   )
