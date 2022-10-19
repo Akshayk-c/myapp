@@ -6,10 +6,10 @@ function EditForm() {
 const loc=useLocation()
 const data=(loc.state)
 const navigate = useNavigate()
-const [admin, setAdmin] = useState(data.admin)
 const [email, setEmail] = useState(data.email)
 const [fname, setFname] = useState(data.fname)
 const [lname, setLname] = useState(data.lname)
+const [admin, setAdmin] = useState(data.admin)
 const [password, setPassword] = useState(data.password)
 const formSubmit =async (e) => {
   e.preventDefault()
@@ -22,7 +22,7 @@ const formSubmit =async (e) => {
       admin : admin
     });
     if (res.status === 200){
-      alert("User Added successfuly")
+      alert("User updated successfuly")
       navigate('/view')
     } 
   } catch (error) {
