@@ -6,6 +6,7 @@ import UserView from './components/UserView';
 import Register from './components/register';
 import Login from './components/login';
 import Profile from './components/profile';
+import NotFound from './components/NotFound';
 
 
 
@@ -20,7 +21,7 @@ function App() {
           <Route path="/new_user" element={<NewUser />} />
           <Route path="/view" element={<UserView />} />
           <Route path={"/edit"} element={<EditForm />} />
-          
+          <Route path={"*"} element={<NotFound />} />
         </Routes>
       </Router>
 
