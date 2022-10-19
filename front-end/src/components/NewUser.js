@@ -1,6 +1,6 @@
 
 import React, { useState   } from 'react'
-import {useNavigate} from "react-router-dom"
+import {useNavigate,Link} from "react-router-dom"
 import axios from 'axios'
 
 function NewUser() {
@@ -88,10 +88,9 @@ async function addUser (e){
           />
         </div><br></br>
         <div>
-          <button type="submit" >
-            Add
-          </button>
+          <button type="submit" >Add</button>
           <button type="reset">Reset</button>
+          <Link to='/profile'>Go back</Link>
         </div>
         </form>
   )

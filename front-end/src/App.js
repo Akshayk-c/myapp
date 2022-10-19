@@ -10,14 +10,11 @@ import Profile from './components/profile';
 
 
 function App() {
-  const [auth, setAuth] = useState('')
- 
-
   return (
     <>
       <Router>
         <Routes>
-        <Route path={"/"} element={<Login {...auth}/>} />
+        <Route path={"/"} element={<Login />} />
         <Route path={"/register"}  element={<Register />} />
         <Route path={"/profile"} element={<Profile />} />
           <Route path="/new_user" element={<NewUser />} />
