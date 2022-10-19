@@ -1,44 +1,31 @@
-import React, { useState, useEffect, useRef  } from 'react'
+import React, { useState, useEffect  } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom';
-
+import { Link,useNavigate } from 'react-router-dom';
 
 function UserView() {
   axios.defaults.headers.common={'Authorization': sessionStorage.getItem('Token') }
-  const ref=useRef(null)
+  const navigate = useNavigate();
   const [search,setSearch]=useState("")
   const [users, setUsers] = useState([])
   const [render, setRender] = useState([])
+
   useEffect(() => {
     axios.get('http://localhost:5000/user')
       .then(res => {
         setUsers(res.data)
       })
       .catch(err => {
-        console.log(err)
+        if(err.response.status===401){
+          navigate('/')
+          sessionStorage.removeItem('Token')
+        }
+        else console.log(err)
       })
     },[render])
+     var pk=users.filter((user)=>{
+      return user.fname.toLowerCase().includes(search.toLowerCase())
+     })
 
-
-const searchSubmit  =async (e,searchName)=>{
-  e.preventDefault()
-  await axios.get(`http://localhost:5000/user/${searchName}`)
-  .then(result => {
-    console.log(result.data)
-    if(result.data.length===0)
-    {alert(` ${searchName} doesn't existed`)
-    setRender(Math.random)
-  }
-    else {
-      setUsers(result.data)
-      }
-  })
-  .catch(err => {
-    console.log(err)
-  })
-  ref.current.value=""
-  setSearch("")
-}
   async function deleteUser  (id) {
     try{
       const res =await axios.delete(`http://localhost:5000/user/${id}`)
@@ -52,14 +39,13 @@ const searchSubmit  =async (e,searchName)=>{
       }
        setRender(Math.random)
   }
- 
-  
+
   return (
     <>
       <label style={{ fontSize: 'large' }}>USER DETAILS</label>
+      <Link to='/profile'>Go back</Link>
       <form ><br></br>
-      <input ref={ref} placeholder='Search..'  onChange={(e) => setSearch(e.target.value)}></input>
-      <button onClick={(e)=>searchSubmit(e,search) }> . </button>
+      <input  type='search' placeholder='Search..'  onChange={(e) => setSearch(e.target.value)}></input>
      </form><br></br>
        <table style={{ border: 'double' }} >
         <thead><tr>
@@ -73,7 +59,7 @@ const searchSubmit  =async (e,searchName)=>{
         </thead>
         <tbody>
           {
-            users.map((data) => (
+            pk.map((data) => (
               <tr key={data._id}>
                 <td>{data.fname}</td>
                 <td>{data.lname}</td>

@@ -1,10 +1,9 @@
 import React, { useState   } from 'react'
-import {useNavigate} from "react-router-dom"
+import {useNavigate , Link} from "react-router-dom"
 import axios from 'axios'
 
 
 function register() {
-  
     const [fname, setFname] = useState('')
     const [lname, setLname] = useState('')
     const [email, setEmail] = useState('')
@@ -91,10 +90,11 @@ async function addUser (e){
         </div><br></br>
         <div>
           <button type="submit" >
-            Add
+            Register
           </button>
           <button type="reset">Reset</button>
         </div>
+        <Link to='/'>Existing user</Link>
         </form>
   )
 }

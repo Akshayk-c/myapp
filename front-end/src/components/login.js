@@ -3,7 +3,6 @@ import {  Link ,useNavigate} from "react-router-dom"
 import axios from 'axios'
 
 function login() {
-
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const navigate = useNavigate();
@@ -19,7 +18,8 @@ function login() {
         alert("Logged in  successfuly")
         const token=resp.data.token
         sessionStorage.setItem('Token',token)
-       navigate('/profile');
+        navigate('/profile')
+       
       } 
     } catch (error) {
       alert(error.response.data)
@@ -49,12 +49,11 @@ function login() {
             placeholder="password"
             name="password"
             onChange={(e) => setPassword(e.target.value)}
-           
           />
         </div><br></br>
         <div>
           <button type="submit" >
-            Add
+            Log in
           </button>
           <button type="reset">Reset</button>
         </div>
