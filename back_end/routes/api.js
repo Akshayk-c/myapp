@@ -20,9 +20,4 @@ routers.post('/',  controller.create)
 // routers.get('/:fname',  controller.find)
 routers.delete('/:id',  controller.delete)
 
-
-
-
-
 module.exports = routers;
-//Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDkxMWZhNGI1M2MxOWQ5YWI3ZDBiMiIsImlhdCI6MTY2NjAzMDM3MCwiZXhwIjoxNjY2MTE2NzcwfQ.2mbULHPknnsKR3evOk8KvVQEt9ytAU-E31enK9AF3TA

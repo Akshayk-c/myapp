@@ -1,5 +1,8 @@
 const jwt = require('jsonwebtoken')
 const Userdb = require('../model/model')
+const dotenv= require('dotenv')
+dotenv.config({path :'../back_end/.env'})
+
 
 exports.profile = async (req,res)=>{
     try{
@@ -99,7 +102,7 @@ exports.login = async(req,res)=>{
     if(data.password === pswrd){
         
         const payload={ id : data.id , admin : data.admin }
-        const token = jwt.sign(payload, "key",{expiresIn:"1d"})
+        const token = jwt.sign(payload, process.env.KEY ,{expiresIn:"1d"})
         res.status(200).send({
             data,
             message :"Valid user",

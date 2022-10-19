@@ -1,5 +1,7 @@
 const mongoose=require('mongoose')
-const uri = "mongodb+srv://Akshay666:6HdyY0pf0DDCsyyQ@cluster0.f3xvxg7.mongodb.net/?retryWrites=true&w=majority";
+const dotenv= require('dotenv')
+dotenv.config({path :'../back_end/.env'})
+const uri = process.env.DB_CONN
 
 
 const connectDB = ()=>{

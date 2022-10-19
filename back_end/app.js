@@ -6,8 +6,6 @@ const connectDB=require('./database/connection')
 const morgan=require('morgan')
 var cors = require('cors')
 
-
-
 app.use(cors())
 app.use(express.json())
 app.use('/user', user)
