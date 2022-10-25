@@ -36,7 +36,7 @@ function login() {
       <div class='d-flex p-2 justify-content-center align-items-center' style={{ height: 100 + 'vh' }}>
 
         <form onSubmit={addUser} >
-          <div class="outerDiv">
+          <div class="outerDiv ">
 
             <div class="card px-1 py-4">
 
@@ -44,7 +44,7 @@ function login() {
 
                 <div>
 
-                  <h1 class="headerText">Enter Login Credentials </h1>
+                  <h1 class="headerText">Enter Login Details</h1>
 
                 </div>
 
