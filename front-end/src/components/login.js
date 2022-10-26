@@ -94,8 +94,8 @@ function login() {
                   </div>
 
                 </div>
-                <div class="text-center my-4">
-                <Link to={`/register`} >New user ? Sign up</Link>
+                <div className="text-center my-4">
+                <Link to={`/register`} className='links' >New user ? Sign up</Link>
                 </div>
              
               </div>
