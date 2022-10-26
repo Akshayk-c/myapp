@@ -40,7 +40,13 @@ function NewUser() {
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <Link class="btn btn-outline-success" to='/profile'>Home </Link>
+            <Link class="btn btn-outline-success" to='/profile'>Home</Link>
+          </div>
+          <div class="navbar-nav">
+            <Link class="btn btn-outline-secondary" to='/view'>All Users </Link>
+          </div>
+          <div class="navbar-nav">
+            <Link class="btn btn-outline-secondary" to='/new_user'>Add User </Link>
           </div>
         </div>
       </nav>
@@ -162,9 +168,6 @@ function NewUser() {
 
                   </div>
 
-                </div>
-                <div className="text-center my-4">
-                  <Link to='/' className='links'>Existing user</Link>
                 </div>
               </div>
             </div>

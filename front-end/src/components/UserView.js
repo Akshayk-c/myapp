@@ -51,10 +51,16 @@ function UserView() {
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
             <div class="navbar-nav mr-auto">
-      <li class="nav-item ">
+            <div class="navbar-nav">
         
-      <Link class="btn  btn-outline-success" to='/profile'>Home </Link>
-      </li>
+      <Link class="btn  btn-outline-success" to='/profile'>Home </Link>  </div>
+      <div class="navbar-nav">
+            <Link class="btn btn-outline-secondary" to='/view'>All Users </Link>
+          </div>
+          <div class="navbar-nav">
+            <Link class="btn btn-outline-secondary" to='/new_user'>Add User </Link>
+          </div>
+      
       <li class="nav-item ">
       <input class="nav-search" aria-label="Search" type="search" placeholder="Search" onChange={(e) => setSearch(e.target.value)}/>
       </li> 

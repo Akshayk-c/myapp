@@ -56,11 +56,11 @@ function profile() {
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
+            <div class="navbar-nav" >
               <Link class="btn btn-outline-success" to='/profile'>Home </Link>
-              <button class="btn btn-sm btn-outline-secondary" onClick={adminAcessUser} >All User</button>
-              <button class="btn btn-sm btn-outline-secondary" onClick={adminAcessAdd}>Add User</button>
-              <button class="btn btn-sm btn-outline-danger" onClick={logOut}>Log out</button>
+              <button class="btn btn-sm btn-outline-secondary"  onClick={adminAcessUser} >All User</button>
+              <button class="btn btn-sm btn-outline-secondary"  onClick={adminAcessAdd}>Add User</button>
+              <button class="btn btn-sm btn-outline-danger"  onClick={logOut}>Log out</button>
             </div>
           </div>
         </nav>
