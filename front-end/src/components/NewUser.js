@@ -33,23 +33,27 @@ function NewUser() {
 
   return (
     <>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <label class="navbar-brand" >New User</label>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <Link class="btn btn-outline-success" to='/profile'>Home</Link>
-          </div>
-          <div class="navbar-nav">
-            <Link class="btn btn-outline-secondary" to='/view'>All Users </Link>
-          </div>
-          <div class="navbar-nav">
-            <Link class="btn btn-outline-secondary" to='/new_user'>Add User </Link>
-          </div>
-        </div>
-      </nav>
+        <nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link " aria-current="page" href="/profile">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/view">All Users </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/new_user">Add User</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
       <div className='d-flex p-2 justify-content-center align-items-center' >
 

@@ -46,7 +46,7 @@ function register() {
 
                 <div>
 
-                  <span className="headerText">Enter User Details</span>
+                  <span className="headerText" style={{fontFamily:'fantasy'}}>Enter User Details</span>
 
                 </div>
 
@@ -113,7 +113,7 @@ function register() {
                 <div className="col-sm-12">
                 <div className="form-group">
                   <div className="labelCss">
-                  <div  >Admin Access</div>
+                  <div  style={{fontWeight:'bolder'}}>Admin Access</div>
                   <div className="row"></div>
 
                       <label>

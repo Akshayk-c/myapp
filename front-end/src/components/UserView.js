@@ -43,34 +43,37 @@ function UserView() {
 
   return (
     <>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <label class="navbar-brand" >User details</label>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-            <div class="navbar-nav mr-auto">
-            <div class="navbar-nav">
-        
-      <Link class="btn  btn-outline-success" to='/profile'>Home </Link>  </div>
-      <div class="navbar-nav">
-            <Link class="btn btn-outline-secondary" to='/view'>All Users </Link>
-          </div>
-          <div class="navbar-nav">
-            <Link class="btn btn-outline-secondary" to='/new_user'>Add User </Link>
-          </div>
-      
-      <li class="nav-item ">
-      <input class="nav-search" aria-label="Search" type="search" placeholder="Search" onChange={(e) => setSearch(e.target.value)}/>
+    <div>
+    <nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link " aria-current="page" href="/profile">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/view">All Users </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/new_user">Add User</a>
+        </li>
+        <li class="nav-item ">
+      <input class="nav-link" aria-label="Search" type="search" placeholder="Search" onChange={(e) => setSearch(e.target.value)}/>
       </li> 
-            </div>
-              
-              
-            </div>
-          </div>
-        </nav>
-        <div>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+    
+      
+      
+            
+        
        <table style={{ border: 'double' }} >
         <thead><tr>
           <th>First name</th>
