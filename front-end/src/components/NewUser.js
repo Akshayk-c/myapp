@@ -31,15 +31,24 @@ async function addUser (e){
   }
   
   return (
+    <>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="#">New User</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <Link class="btn btn-outline-success" to='/profile'>Home </Link>
+              </div>
+          </div>
+        </nav>
     <form onSubmit={addUser}>
-    <div>NewUser</div>
     <div><label>Email</label><br></br>
           <input
            required="required"
             type="text"
-            placeholder="Email"
             name="email"
-            
             onChange={(e) => setEmail(e.target.value)}
             
           />
@@ -48,7 +57,6 @@ async function addUser (e){
           <input
            required="required"
             type="text"
-            placeholder="First Name"
             name="fname"
             onChange={(e) => setFname(e.target.value)}
             
@@ -58,25 +66,23 @@ async function addUser (e){
           <input
            required="required"
             type="text"
-            placeholder="Last name"
             name="lname"
             onChange={(e) => setLname(e.target.value)}
           />
         </div>
         <div><label>Admin</label><br></br>
-        <label>
+        
           <input 
           type='radio' 
           name='admin'
           onClick={(e)=>setAdmin('true')}></input>Yes
-          </label>
-          <label>
+          
           <input 
           type='radio'
           name='admin'
           defaultChecked
           onClick={(e)=>setAdmin('false')}></input>No
-          </label>
+          
         </div>
         <div><label>Password</label><br></br>
           <input
@@ -90,9 +96,9 @@ async function addUser (e){
         <div>
           <button type="submit" >Add</button>
           <button type="reset">Reset</button>
-          <Link to='/profile'>Go back</Link>
         </div>
         </form>
+        </>
   )
 }
 
