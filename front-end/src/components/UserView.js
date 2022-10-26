@@ -53,16 +53,16 @@ function UserView() {
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link " aria-current="page" href="/profile">Home</a>
+          <Link class="nav-link " aria-current="page" to="/profile">Home</Link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/view">All Users </a>
+          <Link class="nav-link" to="/view">All Users </Link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/new_user">Add User</a>
+          <Link class="nav-link" to="/new_user">Add User</Link>
         </li>
         <li class="nav-item ">
-      <input class="nav-link" aria-label="Search" type="search" placeholder="Search" onChange={(e) => setSearch(e.target.value)}/>
+      <input class="nav-link Search"  aria-label="Search" type="search" placeholder="Search" onChange={(e) => setSearch(e.target.value)}/>
       </li> 
         
       </ul>

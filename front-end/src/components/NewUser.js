@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react'
-import { useNavigate } from "react-router-dom"
+import {Link, useNavigate } from "react-router-dom"
 import axios from 'axios'
 import './styles/style.css'
 
@@ -42,13 +42,13 @@ function NewUser() {
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link " aria-current="page" href="/profile">Home</a>
+          <Link class="nav-link " aria-current="page" to="/profile">Home</Link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/view">All Users </a>
+          <Link class="nav-link" to="/view">All Users </Link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/new_user">Add User</a>
+          <Link class="nav-link" to="/new_user">Add User</Link>
         </li>
       </ul>
     </div>

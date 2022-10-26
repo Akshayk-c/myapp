@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 import jwt_decode from 'jwt-decode'
 import axios from 'axios'
 
@@ -28,11 +28,12 @@ function profile() {
   }, [])
 
   const adminAcessUser = () => {
+    
     if (user.admin === false) {
       alert('Access denied')
       navigate('/profile')
     }
-    else navigate('/view')
+    else return navigate('/view')
   }
   const adminAcessAdd = () => {
     if (user.admin === false) {
@@ -61,10 +62,10 @@ function profile() {
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/profile">Home</a>
+          <Link class="nav-link hidden" aria-current="page" to="/profile">Home</Link>
         </li>
         <li class="nav-item">
-        <button class="btn btn-sm btn-outline-secondary"  onClick={adminAcessUser} >All User</button>
+        <Link class="btn btn-sm btn-outline-secondary"  onClick={adminAcessUser}  >All User</Link>
         </li>
         <li class="nav-item">
         <button class="btn btn-sm btn-outline-secondary"  onClick={adminAcessAdd}>Add User</button>
