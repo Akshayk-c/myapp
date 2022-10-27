@@ -12,7 +12,9 @@ var schema = new mongoose.Schema({
       },
       email: {
          type : String,
-         required : true
+         required : true,
+         index :true,
+         unique : true
       },
       password: {
          type : String,
@@ -25,4 +27,5 @@ var schema = new mongoose.Schema({
    });
 
 const Userdb = mongoose.model('userdb',schema)
+Userdb.createIndexes();
 module.exports = Userdb

@@ -16,7 +16,7 @@ routers.use(passport.authenticate('admin',{session : false}),(req,res,next)=>{
      next()} )
 routers.put('/:id',  controller.update)
 routers.get('/',controller.findall)
-routers.post('/',  controller.create)
+routers.post('/',  controller.register)
 // routers.get('/:fname',  controller.find)
 routers.delete('/:id',  controller.delete)
 

@@ -30,16 +30,8 @@ function login() {
     } catch (error) {
       if (error.response.data === "User email doesn't exist") setEmailErr('Invalid email')
       if (error.response.data === "wrong password") setPasswordErr('Invalid password')
-      
-
-      console.log(error.response.data);
+    
     }
-  }
-  const resetData=()=>{
-    setEmail('')
-    setPassword('')
-    setEmailErr('')
-    setPasswordErr('')
   }
 
   return (
@@ -66,7 +58,7 @@ function login() {
 
                   <div class="form-group">
                   
-                    <input class={`form-control ${emailerr ? 'is-invalid ': '' }`} id="nameTxt" type="email" placeholder="Email" value={email} onChange={(e) => {setEmail(e.target.value)
+                    <input class={`form-control ${emailerr ? 'is-invalid ': '' }`} id="nameTxt" type="email" placeholder="Email" required='required' onChange={(e) => {setEmail(e.target.value)
                     setEmailErr('')}} />
                     <span class='text-danger'>{emailerr}</span>
 
@@ -82,7 +74,7 @@ function login() {
 
                   <div class="form-group">
 
-                    <input class={`form-control ${passworderr ? 'is-invalid ': '' }`} id="dobTxt" type="password" placeholder="password" value={password}  onChange={(e) => {setPassword(e.target.value)
+                    <input class={`form-control ${passworderr ? 'is-invalid ': '' }`} id="dobTxt" type="password" placeholder="password" required='required'  onChange={(e) => {setPassword(e.target.value)
                     setPasswordErr('')}} />
 
                     <span class='text-danger'>{passworderr}</span>
@@ -96,14 +88,12 @@ function login() {
               <div class="d-flex  text-center px-5 mx-3 d-flex justify-content-evenly" >
 
                 <div>
-
-                  <button class="btn btn-success confirm-button w-100" >Save</button>
-
+                  <button class="btn btn-success confirm-button w-100">Save</button>
                 </div>
 
                 <div>
 
-                  <button class="btn btn-warning  confirm-button w-100" type="reset" onClick={resetData}>reset</button>
+                  <button class="btn btn-warning  confirm-button w-100" type="reset" >reset</button>
 
                 </div>
 
@@ -113,16 +103,10 @@ function login() {
               </div>
 
             </div>
-
           </div>
-
-
-
         </div>
       </form>
     </div>
-
-
   )
 }
 

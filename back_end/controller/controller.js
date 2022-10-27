@@ -16,26 +16,7 @@ exports.profile = async (req,res)=>{
     }  
 }
 
-exports.create = (req,res)=>{
-    if (Object.keys(req.body).length === 0) {
-        res.status(204).send({message:"Content cannot be empty"})
-        return
-      }
-    const user= new Userdb({
-        fname: req.body.fname,
-        lname: req.body.lname,
-        email: req.body.email,
-        password: req.body.password,
-        admin : req.body.admin
-    })
-    user.save(user)
-    .then(data=>{
-        res.send(data)
-    }).catch(err=>{
-        console.log(err)
-        res.status(400).send({message:err})
-    })
-}
+
 
 exports.findall = (req,res)=>{
     Userdb.find()
@@ -114,9 +95,28 @@ exports.login = async(req,res)=>{
 }
 catch(err){
     console.log(err)
-}
-   
-}
+}}
+
+// exports.create = (req,res)=>{
+//     if (Object.keys(req.body).length === 0) {
+//         res.status(204).send({message:"Content cannot be empty"})
+//         return
+//       }
+//     const user= new Userdb({
+//         fname: req.body.fname,
+//         lname: req.body.lname,
+//         email: req.body.email,
+//         password: req.body.password,
+//         admin : req.body.admin
+//     })
+//     user.save(user)
+//     .then(data=>{
+//         res.send(data)
+//     }).catch(err=>{
+//         console.log(err)
+//         res.status(400).send({message:err})
+//     })
+// }
 
 exports.register = (req,res)=>{
     if (Object.keys(req.body).length === 0) {
@@ -134,7 +134,9 @@ exports.register = (req,res)=>{
     .then(data=>{
         res.status(200).send("User registered successfully")
     }).catch(err=>{
+        if(err.code===11000 ) res.status(400).send({message :'Email already exist'})
+        else res.status(400).send(err)
         console.log(err)
-        res.status(400).send({message:err})
+        
     })
 }

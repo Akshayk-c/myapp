@@ -8,6 +8,7 @@ function register() {
   const [fname, setFname] = useState('')
   const [lname, setLname] = useState('')
   const [email, setEmail] = useState('')
+  const [emailerr,setEmailErr] =useState('')
   const [admin, setAdmin] = useState('false')
   const [password, setPassword] = useState('')
   const navigate = useNavigate();
@@ -27,7 +28,10 @@ function register() {
         navigate('/');
       }
     } catch (error) {
-      console.log(error);
+       if (error.response.data.message ==='Email already exist') {
+        setEmailErr('Email already exist')
+       }
+      else console.log(error);
     }
   }
 
@@ -57,8 +61,10 @@ function register() {
 
                     <div className="form-group">
 
-                      <input className="form-control emailCss" required="required" id="email" type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+                      <input className={`form-control ${emailerr ? 'is-invalid ': '' }`} required="required" id="email" type="email" placeholder="Email" onChange={(e) =>{ setEmail(e.target.value)
+                      setEmailErr('')}} />
 
+                      <span class='text-danger'>{emailerr}</span>
 
                     </div>
 
