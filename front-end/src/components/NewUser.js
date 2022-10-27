@@ -1,8 +1,9 @@
 
 import React, { useState } from 'react'
-import { Link, useNavigate } from "react-router-dom"
+import {  useNavigate } from "react-router-dom"
 import axios from 'axios'
 import './styles/style.css'
+import  NavBar  from './NavBar'
 
 function NewUser() {
   axios.defaults.headers.common = { 'Authorization': sessionStorage.getItem('Token') }
@@ -39,30 +40,8 @@ function NewUser() {
 
   return (
     <>
-      <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container-fluid">
-          <span class="navbar-brand" >Navbar</span>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <Link class="nav-link " aria-current="page" to="/profile">Home</Link>
-              </li>
-              <li class="nav-item">
-                <Link class="nav-link" to="/view">All Users </Link>
-              </li>
-              <li class="nav-item">
-                <Link class="nav-link active" to="/new_user">Add User</Link>
-              </li>
-              <li class="nav-item">
-        <Link class="nav-link link-danger"   to='/'>Log out</Link>
-        </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+     <NavBar props={[ 'true' , 'newuser']} />
+      
 
       <div className='d-flex p-2 justify-content-center align-items-center' >
 

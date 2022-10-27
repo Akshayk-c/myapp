@@ -1,11 +1,12 @@
 import React, { useState, useEffect  } from 'react'
 import axios from 'axios'
 import { Link,useNavigate } from 'react-router-dom';
+import NavBar from './NavBar.js'
 import './styles/style.css'
 
 function UserView() {
    axios.defaults.headers.common={'Authorization': sessionStorage.getItem('Token') }
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const [search,setSearch]=useState("")
   const [users, setUsers] = useState([])
   const [render, setRender] = useState([])
@@ -42,33 +43,10 @@ function UserView() {
   }
 
   return (
+    
     <>
+     <NavBar props={[ 'true' , 'alluser']} />
     <div>
-    <nav class="navbar navbar-expand-lg bg-light">
-  <div class="container-fluid">
-    <span class="navbar-brand" >Navbar</span>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <Link class="nav-link " aria-current="page" to="/profile">Home</Link>
-        </li>
-        <li class="nav-item">
-          <Link class="nav-link active" to="/view">All Users </Link>
-        </li>
-        <li class="nav-item">
-          <Link class="nav-link" to="/new_user">Add User</Link>
-        </li>
-        <li class="nav-item">
-        <Link class="nav-link link-danger"   to='/'>Log out</Link>
-        </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
 <div class='p-3 d-flex justify-content-end'>
   <input class="search "  aria-label="Search" type="search" placeholder="Search" onChange={(e) => setSearch(e.target.value)}/>
  </div>
