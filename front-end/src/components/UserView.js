@@ -61,8 +61,9 @@ function UserView() {
         <li class="nav-item">
           <Link class="nav-link" to="/new_user">Add User</Link>
         </li>
-        <li class="nav-item ">
-      </li> 
+        <li class="nav-item">
+        <Link class="nav-link link-danger"   to='/'>Log out</Link>
+        </li>
         
       </ul>
     </div>

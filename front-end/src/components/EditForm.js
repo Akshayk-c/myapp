@@ -1,6 +1,6 @@
 import React, { useState   } from 'react'
 import axios from 'axios'
-import {useLocation,useNavigate} from 'react-router-dom'
+import {useLocation,useNavigate, Link} from 'react-router-dom'
 
 function EditForm() {
 const loc=useLocation()
@@ -50,6 +50,9 @@ const formSubmit =async (e) => {
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/new_user">Add User</a>
+        </li>
+        <li class="nav-item">
+        <Link class="nav-link link-danger"   to='/'>Log out</Link>
         </li>
         
       </ul>

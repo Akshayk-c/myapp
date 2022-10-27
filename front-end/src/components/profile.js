@@ -54,7 +54,7 @@ function profile() {
           <Link class="nav-link active" aria-current="page" to="/profile">Home</Link>
         </li>
         <li class="nav-item">
-        <Link class={`nav-link ${admin ? ' ': 'd-none'}`}  to='/view'  >All User</Link>
+        <Link class={`nav-link ${admin ? ' ': 'd-none'}`}  to='/view'  >All Users</Link>
         </li>
         <li class="nav-item">
         <Link class={`nav-link ${admin ? ' ': 'd-none'}`}  to='/new_user'>Add User</Link>
