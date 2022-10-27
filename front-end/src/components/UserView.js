@@ -23,7 +23,7 @@ function UserView() {
         else console.log(err)
       })
     },[render])
-     var pk=users.filter((user)=>{
+     var filteredUser=users.filter((user)=>{
       return user.fname.toLowerCase().includes(search.toLowerCase())
      })
 
@@ -50,7 +50,7 @@ function UserView() {
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
           <Link class="nav-link " aria-current="page" to="/profile">Home</Link>
@@ -69,26 +69,23 @@ function UserView() {
     </div>
   </div>
 </nav>
-    
-      
-      
-            
-        
-       <table style={{ border: 'double' }} >
-        <thead><tr>
-          <th>First name</th>
-          <th>Last name</th>
-          <th>Email id</th>
-          <th>Password</th>
-          <th>Role</th>
-          <th>Edit</th>
-          <th>Delete</th></tr>
+  <div>
+     
+       <table class='table table-responsive table-hover mt-3' >
+        <thead class='table-dark p-1px'><tr>
+          <th scope='col'>First name</th>
+          <th scope='col'>Last name</th>
+          <th scope='col'>Email id</th>
+          <th scope='col'>Password</th>
+          <th scope='col'>Role</th>
+          <th scope='col'>Edit</th>
+          <th scope='col'>Delete</th></tr>
         </thead>
-        <tbody>
+        <tbody >
           {
-            pk.map((data) => (
-              <tr key={data._id}>
-                <td>{data.fname}</td>
+            filteredUser.map((data) => (
+              <tr  key={data._id}>
+                <td >{data.fname}</td>
                 <td>{data.lname}</td>
                 <td>{data.email}</td>
                 <td>{data.password}</td>
@@ -104,7 +101,7 @@ function UserView() {
         </tbody>
       </table>
       </div>
-      
+      </div>  
     </>
   )
 }
