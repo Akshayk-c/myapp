@@ -8,6 +8,7 @@ function profile() {
   axios.defaults.headers.common = { 'Authorization': sessionStorage.getItem('Token') }
   const navigate = useNavigate();
   const [user, setUser] = useState('')
+  const [admin, setAdmin] = useState('')
   useEffect(() => {
     try {
       var token = sessionStorage.getItem('Token')
@@ -16,34 +17,36 @@ function profile() {
       axios.get(`http://localhost:5000/user/profile/${decoded.id}`)
         .then(res => {
           setUser(res.data)
+          setAdmin(res.data.admin)
         })
         .catch(err => {
           console.log(err)
         })
+       
     }
     catch (error) {
       navigate('/')
     }
+    
 
   }, [])
 
-  const adminAcessUser = () => {
+  // const adminAcessUser = () => {
     
-    if (user.admin === false) {
-      alert('Access denied')
-      navigate('/profile')
-    }
-    else return navigate('/view')
-  }
-  const adminAcessAdd = () => {
-    if (user.admin === false) {
-      alert('Access denied')
-      navigate('/profile')
-    }
-    else navigate('/new_user')
-  }
+  //   if (user.admin === false) {
+  //     alert('Access denied')
+  //     navigate('/profile')
+  //   }
+  //   else return navigate('/view')
+  // }
+  // const adminAcessAdd = () => {
+  //   if (user.admin === false) {
+  //     alert('Access denied')
+  //     navigate('/profile')
+  //   }
+  //   else navigate('/new_user')
+  // }
   const logOut = () => {
-    navigate('/')
     sessionStorage.removeItem('Token')
   }
 
@@ -62,16 +65,16 @@ function profile() {
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <Link class="nav-link hidden" aria-current="page" to="/profile">Home</Link>
+          <Link class="nav-link" aria-current="page" to="/profile">Home</Link>
         </li>
         <li class="nav-item">
-        <Link class="btn btn-sm btn-outline-secondary"  onClick={adminAcessUser}  >All User</Link>
+        <Link class={`nav-link ${admin ? ' ': 'invisible'}`}  to='/view'  >All User</Link>
         </li>
         <li class="nav-item">
-        <button class="btn btn-sm btn-outline-secondary"  onClick={adminAcessAdd}>Add User</button>
+        <Link class={`nav-link ${admin ? ' ': 'invisible'}`}  to='/new_user'>Add User</Link>
         </li>
         <li class="nav-item">
-        <button class="btn btn-sm btn-outline-danger"  onClick={logOut}>Log out</button>
+        <Link class="nav-link"  onClick={logOut} to='/'>Log out</Link>
         </li>
         
       </ul>
