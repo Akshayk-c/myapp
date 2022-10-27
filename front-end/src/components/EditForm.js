@@ -11,6 +11,7 @@ const [fname, setFname] = useState(data.fname)
 const [lname, setLname] = useState(data.lname)
 const [admin, setAdmin] = useState(data.admin)
 const [password, setPassword] = useState(data.password)
+const [emailerr,setEmailErr] =useState('')
 const formSubmit =async (e) => {
   e.preventDefault()
   try {
@@ -26,7 +27,10 @@ const formSubmit =async (e) => {
       navigate('/view')
     } 
   } catch (error) {
-    console.log(error);
+    if (error.response.data.message ==='Email already exist') {
+     setEmailErr('Email already exist')
+    }
+   else console.log(error);
   } 
 }
   return (
@@ -92,8 +96,11 @@ const formSubmit =async (e) => {
 
                     <div className="form-group">
 
-                      <input className="form-control emailCss" required="required" id="email" type="email" placeholder="Email" defaultValue={data.email} onChange={(e) => setEmail(e.target.value)}/>
 
+                      <input className={`form-control ${emailerr ? 'is-invalid ': '' }`} required="required" id="email" type="email" placeholder="Email" defaultValue={data.email} onChange={(e) =>{ setEmail(e.target.value)
+                      setEmailErr('')}} />
+
+                      <span class='text-danger'>{emailerr}</span>
 
                     </div>
 
@@ -184,7 +191,7 @@ const formSubmit =async (e) => {
 
                   <div>
 
-                    <button className="btn btn-warning  confirm-button w-100" type="reset" >Reset</button>
+                    <button className="btn btn-warning  confirm-button w-100" type="reset"  >Reset</button>
 
                   </div>
 

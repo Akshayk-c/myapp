@@ -34,6 +34,9 @@ function register() {
       else console.log(error);
     }
   }
+  const resetErr=()=>{
+    setEmailErr('')
+  }
 
 
   return (
@@ -154,7 +157,7 @@ function register() {
 
                   <div>
 
-                    <button className="btn btn-warning  confirm-button w-100" type="reset" >reset</button>
+                    <button className="btn btn-warning  confirm-button w-100" type="reset" onClick={resetErr} >reset</button>
 
                   </div>
 

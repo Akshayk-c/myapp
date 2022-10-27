@@ -34,6 +34,9 @@ function NewUser() {
       else console.log(error);
     }
   }
+  const resetErr=()=>{
+    setEmailErr('')
+  }
 
   return (
     <>
@@ -175,7 +178,7 @@ function NewUser() {
 
                   <div>
 
-                    <button className="btn btn-warning  confirm-button w-100" type="reset" >Reset</button>
+                    <button className="btn btn-warning  confirm-button w-100" type="reset" onClick={resetErr}>Reset</button>
 
                   </div>
 

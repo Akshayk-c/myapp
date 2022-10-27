@@ -41,8 +41,9 @@ exports.update = async (req,res)=>{
         res.json(data)
     }
     catch(err){
+        if(err.code===11000 ) res.status(400).send({message :'Email already exist'})
+        else res.status(400).send(err)
         console.log(err)
-        res.status(400).send({ message: "error while update" })
     }
 }
 
