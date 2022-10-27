@@ -4,7 +4,7 @@ import { Link,useNavigate } from 'react-router-dom';
 import './styles/style.css'
 
 function UserView() {
-  axios.defaults.headers.common={'Authorization': sessionStorage.getItem('Token') }
+   axios.defaults.headers.common={'Authorization': sessionStorage.getItem('Token') }
   const navigate = useNavigate();
   const [search,setSearch]=useState("")
   const [users, setUsers] = useState([])
@@ -17,8 +17,8 @@ function UserView() {
       })
       .catch(err => {
         if(err.response.status===401){
-          navigate('/')
-          sessionStorage.removeItem('Token')
+          navigate('/profile')
+          // sessionStorage.removeItem('Token')
         }
         else console.log(err)
       })
@@ -56,22 +56,25 @@ function UserView() {
           <Link class="nav-link " aria-current="page" to="/profile">Home</Link>
         </li>
         <li class="nav-item">
-          <Link class="nav-link" to="/view">All Users </Link>
+          <Link class="nav-link active" to="/view">All Users </Link>
         </li>
         <li class="nav-item">
           <Link class="nav-link" to="/new_user">Add User</Link>
         </li>
         <li class="nav-item ">
-      <input class="nav-link Search"  aria-label="Search" type="search" placeholder="Search" onChange={(e) => setSearch(e.target.value)}/>
       </li> 
         
       </ul>
     </div>
   </div>
 </nav>
-  <div>
+<div class='p-3 d-flex justify-content-end'>
+  <input class="search "  aria-label="Search" type="search" placeholder="Search" onChange={(e) => setSearch(e.target.value)}/>
+ </div>
      
-       <table class='table table-responsive table-hover mt-3' >
+  <div class='tablediv p-3'>
+     
+       <table class='table table-responsive table-hover ' >
         <thead class='table-dark p-1px'><tr>
           <th scope='col'>First name</th>
           <th scope='col'>Last name</th>
@@ -81,20 +84,20 @@ function UserView() {
           <th scope='col'>Edit</th>
           <th scope='col'>Delete</th></tr>
         </thead>
-        <tbody >
+        <tbody  >
           {
             filteredUser.map((data) => (
               <tr  key={data._id}>
-                <td >{data.fname}</td>
+                <td   >{data.fname}</td>
                 <td>{data.lname}</td>
                 <td>{data.email}</td>
                 <td>{data.password}</td>
                 <td>{data.admin.toString()===`true`?`Admin`:`User`}</td>
                 <td>
-                <Link to={`/edit`} state={data}>edit</Link>
+                <Link class='btn btn-success h-2' to={`/edit`} state={data}>Edit</Link>
                 </td>
                 <td>
-                  <button onClick={(e) => deleteUser(data._id)}>Delete</button>
+                  <button class='btn btn-danger p-1' onClick={(e) => deleteUser(data._id)}>Delete</button>
                 </td></tr>
             ))
           }

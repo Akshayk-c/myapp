@@ -21,7 +21,7 @@ function login() {
         password: password
       })
       if (resp.status === 200) {
-        alert("Logged in  successfuly")
+        // alert("Logged in  successfuly")
         const token = resp.data.token
         sessionStorage.setItem('Token', token)
         navigate('/profile')
@@ -88,7 +88,7 @@ function login() {
               <div class="d-flex  text-center px-5 mx-3 d-flex justify-content-evenly" >
 
                 <div>
-                  <button class="btn btn-success confirm-button w-100">Save</button>
+                  <button class="btn btn-success confirm-button w-100">Login</button>
                 </div>
 
                 <div>

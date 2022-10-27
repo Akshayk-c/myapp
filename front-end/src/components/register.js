@@ -24,7 +24,6 @@ function register() {
         admin: admin
       });
       if (resp.status === 200) {
-        alert("User Added successfuly")
         navigate('/');
       }
     } catch (error) {

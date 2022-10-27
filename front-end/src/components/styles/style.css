@@ -107,7 +107,7 @@
         width: 90% !important;
      }   
     }
-    .nav-link.Search{
+    .search{
         border: none;
         outline:  none;
         border-bottom: 1px solid black;
@@ -129,5 +129,8 @@
     margin:  30px 10px 10px 10px!important;
 }
 
-
-
+@media screen and (max-width:687px) {
+    .tablediv{
+       overflow-y: scroll!important;
+       overflow-x: scroll!important;
+    } }

@@ -23,7 +23,6 @@ const formSubmit =async (e) => {
       admin : admin
     });
     if (res.status === 200){
-      alert("User updated successfuly")
       navigate('/view')
     } 
   } catch (error) {

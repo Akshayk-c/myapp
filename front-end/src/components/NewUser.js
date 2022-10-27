@@ -24,7 +24,6 @@ function NewUser() {
         admin: admin
       });
       if (resp.status === 200) {
-        alert("User Added successfuly")
         navigate('/view');
       }
     } catch (error) {
@@ -55,7 +54,7 @@ function NewUser() {
                 <Link class="nav-link" to="/view">All Users </Link>
               </li>
               <li class="nav-item">
-                <Link class="nav-link" to="/new_user">Add User</Link>
+                <Link class="nav-link active" to="/new_user">Add User</Link>
               </li>
             </ul>
           </div>

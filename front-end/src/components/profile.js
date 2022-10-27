@@ -31,21 +31,7 @@ function profile() {
 
   }, [])
 
-  // const adminAcessUser = () => {
-    
-  //   if (user.admin === false) {
-  //     alert('Access denied')
-  //     navigate('/profile')
-  //   }
-  //   else return navigate('/view')
-  // }
-  // const adminAcessAdd = () => {
-  //   if (user.admin === false) {
-  //     alert('Access denied')
-  //     navigate('/profile')
-  //   }
-  //   else navigate('/new_user')
-  // }
+  
   const logOut = () => {
     sessionStorage.removeItem('Token')
   }
@@ -65,16 +51,16 @@ function profile() {
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
       <ul class="navbar-nav ">
         <li class="nav-item">
-          <Link class="nav-link" aria-current="page" to="/profile">Home</Link>
+          <Link class="nav-link active" aria-current="page" to="/profile">Home</Link>
         </li>
         <li class="nav-item">
-        <Link class={`nav-link ${admin ? ' ': 'disabled'}`}  to='/view'  >All User</Link>
+        <Link class={`nav-link ${admin ? ' ': 'd-none'}`}  to='/view'  >All User</Link>
         </li>
         <li class="nav-item">
-        <Link class={`nav-link ${admin ? ' ': 'disabled'}`}  to='/new_user'>Add User</Link>
+        <Link class={`nav-link ${admin ? ' ': 'd-none'}`}  to='/new_user'>Add User</Link>
         </li>
         <li class="nav-item">
-        <Link class="nav-link"  onClick={logOut} to='/'>Log out</Link>
+        <Link class="nav-link link-danger"  onClick={logOut} to='/'>Log out</Link>
         </li>
         
       </ul>
