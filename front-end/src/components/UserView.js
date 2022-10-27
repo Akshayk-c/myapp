@@ -48,7 +48,8 @@ function UserView() {
      <NavBar props={[ 'true' , 'alluser']} />
     <div>
 <div class='p-3 d-flex justify-content-end'>
-  <input class="search "  aria-label="Search" type="search" placeholder="Search" onChange={(e) => setSearch(e.target.value)}/>
+  <input class=" search"  aria-label="Search" type="search" placeholder="Search" onChange={(e) => setSearch(e.target.value)}/>
+ 
  </div>
      
   <div class='tablediv p-3'>
