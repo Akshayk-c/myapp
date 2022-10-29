@@ -47,12 +47,12 @@ function profile() {
       <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner p-1 ">
     <div class="carousel-item active">
-      <img src='images/welcome.jpg' class="d-block" alt="..."/>
+      <img src='images/welcome.jpg' class="d-block" alt=".." />
     </div>
     <div class="carousel-item">
     <div class='outerDiv .d-h-60vh ' >
     <div class="card mb-3 bg-dark">
-  <img src="images/pro.svg.svg" class="card-img-top" alt="..."/>
+  <img src="images/pro.svg.svg" class="card-img-top" alt=".."/>
   <div class="card-body text-light">
     <h5 class="card-title">Profile</h5>
     <p class="card-text">
