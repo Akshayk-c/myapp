@@ -1,46 +1,52 @@
-import React, { useState   } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
-import {useLocation,useNavigate} from 'react-router-dom'
-import  NavBar  from './NavBar'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import NavBar from './NavBar'
 
 
 function EditForm() {
-const loc=useLocation()
-const data=(loc.state)
-const navigate = useNavigate()
-const [email, setEmail] = useState(data.email)
-const [fname, setFname] = useState(data.fname)
-const [lname, setLname] = useState(data.lname)
-const [admin, setAdmin] = useState(data.admin)
-const [password, setPassword] = useState(data.password)
-const [emailerr,setEmailErr] =useState('')
-const formSubmit =async (e) => {
-  e.preventDefault()
-  try {
-    const  res =await axios.put(`http://localhost:5000/user/${data._id}`, {
-      email: email,
-      lname: lname,
-      fname: fname,
-      password: password,
-      admin : admin
-    });
-    if (res.status === 200){
-      navigate('/view')
-    } 
-  } catch (error) {
-    if (error.response.data.message ==='Email already exist') {
-     setEmailErr('Email already exist')
+  
+  const loc = useLocation()
+  const data = (loc.state)
+  const navigate = useNavigate()
+  const [email, setEmail] = useState(data.email)
+  const [fname, setFname] = useState(data.fname)
+  const [lname, setLname] = useState(data.lname)
+  const [admin, setAdmin] = useState(data.admin)
+  const [password, setPassword] = useState(data.password)
+  const [emailerr, setEmailErr] = useState('')
+  const formSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      const res = await axios.put(`http://localhost:5000/user/${data._id}`, {
+        email: email,
+        lname: lname,
+        fname: fname,
+        password: password,
+        admin: admin
+      });
+      if (res.status === 200) {
+        navigate('/view')
+      }
+    } catch (error) {
+      if (error.response.data.message === 'Email already exist') {
+        setEmailErr('Email already exist')
+      }
+      else console.log(error);
     }
-   else console.log(error);
-  } 
-}
+  }
+  const resetEvent = (e) => {
+    setEmail(data.email)
+    setEmailErr('')
+  }
+
   return (
     <>
-     <NavBar props={'true'} />
-      
+      <NavBar props={'true'} />
+
       <div className='d-flex p-2 justify-content-center align-items-center' >
 
-        <form onSubmit={formSubmit} >
+        <form onSubmit={formSubmit} onReset={resetEvent} >
           <div className="outerDiv ">
 
             <div className="card px-1 py-4">
@@ -58,8 +64,8 @@ const formSubmit =async (e) => {
 
                     <div className="form-group">
 
-                      <input className="form-control idCss" required="required" id="id" type="text"  value={'ID : '+data._id} readOnly
-             />
+                      <input className="form-control idCss" required="required" id="id" type="text" value={'ID : ' + data._id} readOnly
+                      />
 
 
                     </div>
@@ -76,8 +82,10 @@ const formSubmit =async (e) => {
                     <div className="form-group">
 
 
-                      <input className={`form-control ${emailerr ? 'is-invalid ': '' }`} required="required" id="email" type="email" placeholder="Email" defaultValue={data.email} onChange={(e) =>{ setEmail(e.target.value)
-                      setEmailErr('')}} />
+                      <input className={`form-control ${emailerr ? 'is-invalid ' : ''}`} required="required" id="email" type="email" placeholder="Email" defaultValue={data.email} onChange={(e) => {
+                        setEmail(e.target.value)
+                        setEmailErr('')
+                      }} />
 
                       <span class='text-danger'>{emailerr}</span>
 
@@ -142,7 +150,7 @@ const formSubmit =async (e) => {
                             type='radio'
                             name='admin'
                             defaultChecked={data.admin}
-                            onClick={(e)=>setAdmin('true')}></input>Yes
+                            onClick={(e) => setAdmin('true')}></input>Yes
                         </label>
                         <div className="row"></div>
                         <label>
@@ -150,7 +158,7 @@ const formSubmit =async (e) => {
                             type='radio'
                             name='admin'
                             defaultChecked={!(data.admin)}
-                            onClick={(e)=>setAdmin('false')}></input>No
+                            onClick={(e) => setAdmin('false')}></input>No
                         </label>
 
 
@@ -168,9 +176,16 @@ const formSubmit =async (e) => {
 
                   </div>
 
+
                   <div>
 
-                    <button className="btn btn-warning  confirm-button w-100" type="reset"  >Reset</button>
+                    <button className="btn btn-warning  confirm-button w-100" type='reset'  >Reset</button>
+
+                  </div>
+                  {console.log('emm=  ' + email)}
+                  <div>
+
+                    <Link className="btn btn-danger  confirm-button w-100" to='/view'  >Cancel</Link>
 
                   </div>
 

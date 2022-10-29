@@ -54,7 +54,7 @@ function UserView() {
      
   <div class='tablediv p-3'>
      
-       <table class='table table-responsive table-hover ' >
+       <table class='table table-responsive table-hover'>
         <thead class='table-dark p-1px'><tr>
           <th scope='col'>First name</th>
           <th scope='col'>Last name</th>

@@ -134,3 +134,18 @@
        overflow-y: scroll!important;
        overflow-x: scroll!important;
     } }
+
+    .card-img-top{
+display: flex;
+height: 50vh;
+justify-content: center;
+    }
+
+    .card-body{
+        padding: 3%;
+    }
+    .carousel-item.active {
+        display: flex!important;
+        justify-content: center!important;
+        height: 90vh!important;
+    }
