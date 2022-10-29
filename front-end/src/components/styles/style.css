@@ -149,3 +149,10 @@ justify-content: center;
         justify-content: center!important;
         height: 90vh!important;
     }
+
+    @media screen and (max-width:687px) {
+        .d-block{
+            margin-top: 50%;
+            width: 90% !important;
+            height: 50% !important;
+        } }

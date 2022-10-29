@@ -52,7 +52,7 @@ function profile() {
     <div class="carousel-item">
     <div class='outerDiv .d-h-60vh ' >
     <div class="card mb-3 bg-dark">
-  <img src="images/pro.svg.svg" class="card-img-top" alt=".."/>
+  <img src="images/user-512.png" class="card-img-top p-3" alt=".."/>
   <div class="card-body text-light">
     <h5 class="card-title">Profile</h5>
     <p class="card-text">
