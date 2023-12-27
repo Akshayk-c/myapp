@@ -4,7 +4,7 @@ dotenv.config({path :'../back_end/.env'})
 const uri = process.env.DB_CONN
 
 
-const connectDB = ()=>{
+const connectDB = async()=>{
     try {
     const con= mongoose.connect(uri)
     console.log("database connected ")
